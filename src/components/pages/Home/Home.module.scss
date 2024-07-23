@@ -1,0 +1,15 @@
+.root {
+  position: relative;
+  height: get-real-vh(100);
+  overflow: hidden;
+}
+
+.copy {
+  position: absolute;
+  z-index: 10;
+  bottom: tovw(40);
+  right: tovw(77);
+  font-size: tovw(12);
+  line-height: 1.35;
+  opacity: 0.5;
+}

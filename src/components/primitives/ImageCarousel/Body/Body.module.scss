@@ -1,0 +1,29 @@
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.item {
+  flex: 0 0 auto;
+  padding: 0 15px;
+
+  &:nth-child(odd) {
+    div {
+      width: tovw(500);
+      height: tovw(300);
+      background-color: #bebebe;
+    }
+  }
+
+  &:nth-child(even) {
+    div {
+      width: tovw(300);
+      height: tovw(200);
+      background-color: #c2c2c2;
+    }
+  }
+
+
+}

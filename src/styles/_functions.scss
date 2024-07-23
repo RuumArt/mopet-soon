@@ -1,0 +1,44 @@
+@use 'sass:string';
+@use 'sass:math';
+@use 'sass:map';
+@use "sass:list";
+
+$golden-ratio: 1.6180339887498948482;
+$reciprocal-golden-ratio: math.div(1, $golden-ratio);
+$duration: $reciprocal-golden-ratio * 1.2;
+
+/* sizes */
+
+@function tovw($pixels) {
+  @return calc(((#{$pixels} / var(--vw-screen)) * 100) * 1vw);
+}
+
+@function torem($target, $context: 16px) {
+  @if $target == 0 {
+    @return 0;
+  }
+
+  @return math.div($target, $context) + 0rem;
+}
+
+@function toem($target, $context) {
+  @if $target == 0 {
+    @return 0;
+  }
+
+  @return math.div($target, $context) + 0em;
+}
+
+@function get-real-vh($vh) {
+  @return calc(var(--vh, 1vh) * #{$vh});
+}
+
+@function get-real-vw($vh) {
+  @return calc(var(--vw, 1vw) * #{$vh});
+}
+
+/* colors */
+
+@function set-color($scheme, $tone: base) {
+  @return map.get(map.get($colors, $scheme), $tone);
+}

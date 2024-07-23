@@ -1,0 +1,25 @@
+@import "reset";
+@import "fonts";
+@import "mixins";
+@import "layout";
+@import "gap-system";
+@import "colors";
+@import "ease";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--primary-font), sans-serif;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

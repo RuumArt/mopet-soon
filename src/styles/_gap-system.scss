@@ -1,0 +1,14 @@
+@import './_helpers';
+
+$defaultGap: 4;
+
+:root {
+  /* Gap system */
+
+  @for $i from 1 through $defaultGap * $defaultGap {
+    $gap: $i * $defaultGap;
+    --gap-#{$gap}: #{tovw(#{$gap})};
+  }
+
+  --default-br: #{tovw(37)};
+}

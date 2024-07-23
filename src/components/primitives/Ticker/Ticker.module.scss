@@ -1,0 +1,17 @@
+.root {
+  --offset: #{vw(40)};
+
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.rail {
+  display: flex;
+  width: max-content;
+}
+
+.item {
+  padding: 0 var(--offset);
+  backface-visibility: hidden;
+}

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "components/*": ["src/components/primitives/*"],
+      "hooks/*": ["src/hooks/*"],
+      "pages/*": ["src/components/pages/*"],
+      "constants/*": ["src/constants/*"],
+      "prismic/*": ["src/prismic/*"],
+      "providers/*": ["src/components/providers/*"],
+      "styles/*": ["src/styles/*"],
+      "utils/*": ["src/utils/*"],
+      "public/*": ["public/*"],
+      "images/*": ["public/images/*"],
+      "lib/*": ["src/lib/*"],
+      "context/*": ["src/context/*"],
+      "utils": ["src/utils/index"]
+    }
+  }
+}

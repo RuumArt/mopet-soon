@@ -1,0 +1,14 @@
+@use 'sass:color';
+
+$colors: (
+  'white': #FFFFFF,
+  'black': #000000,
+  'blue': #138CED,
+);
+
+:root {
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+    --#{$name}-transparent: #{color.change($color, $alpha: 0.2)};
+  }
+}

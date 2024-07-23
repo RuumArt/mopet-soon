@@ -1,0 +1,17 @@
+.root {
+  object-fit: cover;
+}
+
+.fit {
+  &-cover {
+    object-fit: cover;
+  }
+
+  &-none {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+}

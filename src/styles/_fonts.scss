@@ -1,0 +1,14 @@
+/* @font-face {
+  font-family: 'Aquatory';
+  src: url('/fonts/Aquatory-Regular.woff2') format('woff2'),
+  url('/fonts/Aquatory-Regular.woff') format('woff'),
+  url('/fonts/Aquatory-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} */
+
+:root {
+  --primary-font: 'Arial', sans-serif;
+  --secondary-font: 'Aquatory', sans-serif;
+}

@@ -1,0 +1,11 @@
+.root {
+  position: fixed;
+  z-index: var(--z-header);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: tovw(40) tovw(78) tovw(40) tovw(126);
+  width: 100%;
+}

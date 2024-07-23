@@ -1,0 +1,158 @@
+@use 'sass:map';
+
+$maxCount: 12;
+
+$layout: (
+  'columns-gap': (
+    30,
+    20,
+    20,
+  ),
+  'margin': (
+    50,
+    30,
+    20,
+  ),
+);
+
+.root {
+  --layout-columns-gap: #{tovw(nth(map.get($layout, 'columns-gap'), 3))};
+  --layout-margin: #{tovw(nth(map.get($layout, 'margin'), 3))};
+
+  --layout-width: calc(100vw - (2 * var(--layout-margin)));
+  --layout-column-width: calc(
+    (
+    var(--layout-width) -
+    ((var(--layout-columns-count) - 1) * var(--layout-columns-gap))
+    ) / var(--layout-columns-count)
+  );
+
+  display: grid;
+  grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
+  grid-gap: var(--layout-columns-gap);
+  width: 100%;
+}
+
+.count {
+  &-sm {
+    @for $i from 1 through $maxCount {
+      &-#{$i} {
+        --layout-columns-count: #{$i};
+      }
+    }
+  }
+
+  &-md {
+    @include mq(md) {
+      @for $i from 1 through $maxCount {
+        &-#{$i} {
+          --layout-columns-count: #{$i};
+        }
+      }
+    }
+  }
+
+  &-lg {
+    @include mq(lg) {
+      @for $i from 1 through $maxCount {
+        &-#{$i} {
+          --layout-columns-count: #{$i};
+        }
+      }
+    }
+  }
+}
+
+.item {
+  display: grid;
+}
+
+.start {
+  &-sm {
+    @for $i from 1 through $maxCount {
+      &-#{$i} {
+        grid-column-start: #{$i};
+      }
+    }
+  }
+
+  &-md {
+    @include mq(md) {
+      @for $i from 1 through $maxCount {
+        &-#{$i} {
+          grid-column-start: #{$i};
+        }
+      }
+    }
+  }
+
+  &-lg {
+    @include mq(lg) {
+      @for $i from 1 through $maxCount {
+        &-#{$i} {
+          grid-column-start: #{$i};
+        }
+      }
+    }
+  }
+}
+
+.end {
+  &-sm {
+    @for $i from 1 through $maxCount {
+      &-#{$i} {
+        grid-column-end: #{$i};
+      }
+    }
+  }
+
+  &-md {
+    @include mq(md) {
+      @for $i from 1 through $maxCount {
+        &-#{$i} {
+          grid-column-end: #{$i};
+        }
+      }
+    }
+  }
+
+  &-lg {
+    @include mq(lg) {
+      @for $i from 1 through $maxCount {
+        &-#{$i} {
+          grid-column-end: #{$i};
+        }
+      }
+    }
+  }
+}
+
+.column {
+  &-sm {
+    @for $i from 1 through $maxCount {
+      &-#{$i} {
+        grid-column: span #{$i};
+      }
+    }
+  }
+
+  &-md {
+    @include mq(md) {
+      @for $i from 1 through $maxCount {
+        &-#{$i} {
+          grid-column: span #{$i};
+        }
+      }
+    }
+  }
+
+  &-lg {
+    @include mq(lg) {
+      @for $i from 1 through $maxCount {
+        &-#{$i} {
+          grid-column: span #{$i};
+        }
+      }
+    }
+  }
+}
