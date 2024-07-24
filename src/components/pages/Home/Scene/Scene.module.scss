@@ -8,21 +8,45 @@
   height: get-real-vh(100);
   min-height: tovw(800);
   overflow: hidden;
+
+  @include tablet {
+    min-height: tovw(1024);
+  }
+
+  @include tablet(landscape) {
+    min-height: tovw(720);
+  }
+
+  @include mobile {
+    min-height: tovw(500);
+  }
+
+  @include mobile(landscape) {
+    min-height: tovw(390);
+  }
 }
 
 .bg {
   position: absolute;
   z-index: 1;
-  //inset: -2%;
-  top: -2%;
-  bottom: -2%;
-  left: -2%;
-  right: -2%;
+  inset: -2%;
   //background-color: var(--blue);
   background-image: url("/images/scene/plus-bg.svg"), radial-gradient(64.36% 118.04% at 69.61% 84.12%, #44ACFF 0%, #086EE6 100%);
-  background-repeat: repeat no-repeat;
+  background-repeat: repeat, no-repeat;
   background-size: tovw(226), auto;
   transform: translate3d(calc(var(--parallax-x) * 1%), calc(var(--parallax-y) * 1%), 0);
+
+  @include tabletAll {
+    background-size: tovw(200), auto;
+  }
+
+  @include mobile {
+    background-size: tovw(100), auto;
+  }
+
+  @include mobile(landscape) {
+    background-size: tovw(100), auto;
+  }
 }
 
 .content {
@@ -31,15 +55,79 @@
   max-width: tovw(826);
   margin-left: tovw(56);
   padding-top: tovw(111);
+
+  @include tablet {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding-top: tovw(94);
+    padding-bottom: tovw(80);
+    margin-left: tovw(23);
+    height: 100%;
+  }
+
+  @include tablet(landscape) {
+    max-width: tovw(713);
+    margin-left: tovw(31);
+    padding-top: tovw(84);
+  }
+
+  @include mobile {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: tovw(346);
+    margin-left: tovw(21);
+    padding-top: tovw(74);
+    padding-bottom: tovw(20);
+  }
+
+  @include mobile(landscape) {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: tovw(346);
+    margin-left: tovw(58);
+    padding-top: tovw(67);
+    padding-bottom: tovw(0);
+  }
 }
 
 .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin-bottom: tovw(30);
-  min-height: tovw(296);
+  min-height: tovw(220);
   font-size: tovw(185);
   line-height: 0.8;
   font-weight: 900;
   text-transform: uppercase;
+
+  @include tabletAll {
+    min-height: tovw(206);
+    font-size: tovw(160);
+  }
+
+  @include tablet {
+    margin-bottom: tovw(0);
+  }
+
+  @include tablet(landscape) {
+    margin-bottom: tovw(20);
+  }
+
+  @include mobile() {
+    min-height: tovw(124);
+    font-size: tovw(77);
+  }
+
+  @include mobile(landscape) {
+    min-height: tovw(124);
+    font-size: tovw(77);
+  }
 }
 
 .text {
@@ -49,6 +137,35 @@
   line-height: 1.35;
   letter-spacing: 0.01em;
   font-weight: 400;
+
+  @include tabletAll {
+    max-width: tovw(438);
+    font-size: tovw(17);
+  }
+
+  @include tablet {
+    margin-top: auto;
+    padding-left: tovw(48);
+  }
+
+  @include tablet(landscape) {
+    padding-left: tovw(40);
+  }
+
+  @include mobile {
+    margin-top: auto;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    //padding-right: tovw(20);
+    font-size: tovw(16);
+  }
+
+  @include mobile(landscape) {
+    max-width: 100%;
+    padding-left: tovw(76);
+    font-size: tovw(16);
+  }
 }
 
 .main {
@@ -67,6 +184,44 @@
   width: tovw(308);
   height: tovw(262);
   // transform: translate3d(calc(var(--parallax-x) * 4%), calc(var(--parallax-y) * 4%), 0);
+
+  @include tabletAll {
+    width: tovw(242);
+    height: tovw(205);
+  }
+
+  @include tablet {
+    z-index: 4;
+    transform: scaleX(-1);
+    bottom: tovw(67);
+    left: auto;
+    right: tovw(-22);
+  }
+
+  @include tablet(landscape) {
+    left: tovw(18);
+    bottom: tovw(12);
+  }
+
+  @include mobile {
+    z-index: 4;
+    transform: scaleX(-1);
+    width: tovw(173);
+    height: tovw(146);
+    left: auto;
+    right: tovw(-17);
+    bottom: tovw(57);
+  }
+
+  @include mobile(landscape) {
+    z-index: 4;
+    transform: scaleX(-1);
+    width: tovw(153);
+    height: tovw(130);
+    left: auto;
+    right: tovw(38);
+    bottom: tovw(-6);
+  }
 }
 
 .camera {
@@ -76,6 +231,38 @@
   width: tovw(523);
   height: tovw(300);
   // transform: translate3d(calc(var(--parallax-x) * 4%), calc(var(--parallax-y) * 4%), 0);
+
+  @include tabletAll {
+    z-index: 5;
+    width: tovw(410);
+    height: tovw(236);
+  }
+
+  @include tablet {
+    bottom: tovw(153);
+    left: tovw(-222);
+  }
+
+  @include tablet(landscape) {
+    bottom: tovw(14);
+    left: tovw(82);
+  }
+
+  @include mobile {
+    z-index: 5;
+    width: tovw(264);
+    height: tovw(152);
+    bottom: tovw(73);
+    left: tovw(-154);
+  }
+
+  @include mobile(landscape) {
+    z-index: 5;
+    width: tovw(234);
+    height: tovw(134);
+    bottom: tovw(4);
+    left: tovw(-124);
+  }
 }
 
 .plane {
@@ -86,6 +273,35 @@
   height: tovw(364);
 
   transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+
+  @include tabletAll {
+    width: tovw(666);
+    height: tovw(286);
+  }
+
+  @include tablet {
+    bottom: tovw(178);
+    right: tovw(-16);
+  }
+
+  @include tablet(landscape) {
+    bottom: tovw(40);
+    right: tovw(-61);
+  }
+
+  @include mobile {
+    width: tovw(424);
+    height: tovw(184);
+    bottom: tovw(127);
+    right: tovw(-14);
+  }
+
+  @include mobile(landscape) {
+    width: tovw(381);
+    height: tovw(168);
+    bottom: tovw(34);
+    right: tovw(108);
+  }
 }
 
 .dog {
@@ -96,6 +312,35 @@
   height: tovw(284);
 
   transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+
+  @include tabletAll {
+    width: tovw(216);
+    height: tovw(244);
+  }
+
+  @include tablet {
+    bottom: tovw(336);
+    right: tovw(203);
+  }
+
+  @include tablet(landscape) {
+    bottom: tovw(205);
+    right: tovw(166);
+  }
+
+  @include mobile {
+    bottom: tovw(230);
+    right: tovw(134);
+    width: tovw(132);
+    height: tovw(149);
+  }
+
+  @include mobile(landscape) {
+    bottom: tovw(125);
+    right: tovw(233);
+    width: tovw(118);
+    height: tovw(134);
+  }
 }
 
 .flag {
@@ -106,6 +351,35 @@
   height: tovw(382);
 
   transform: rotate(calc(var(--parallax-x) * -2deg)) translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+
+  @include tabletAll {
+    width: tovw(200);
+    height: tovw(302);
+  }
+
+  @include tablet {
+    bottom: tovw(324);
+    right: tovw(360);
+  }
+
+  @include tablet(landscape) {
+    bottom: tovw(190);
+    right: tovw(322);
+  }
+
+  @include mobile {
+    bottom: tovw(222);
+    right: tovw(227);
+    width: tovw(127);
+    height: tovw(192);
+  }
+
+  @include mobile(landscape) {
+    bottom: tovw(118);
+    right: tovw(315);
+    width: tovw(114);
+    height: tovw(172);
+  }
 }
 
 .boom {
@@ -116,6 +390,35 @@
   height: tovw(281);
 
   transform: translate3d(calc(var(--parallax-x) * 3%), calc(var(--parallax-y) * 3%), 0);
+
+  @include tabletAll {
+    width: tovw(356);
+    height: tovw(242);
+  }
+
+  @include tablet {
+    top: tovw(62);
+    left: tovw(-30);
+  }
+
+  @include tablet(landscape) {
+    top: tovw(67);
+    left: tovw(-26);
+  }
+
+  @include mobile {
+    width: tovw(172);
+    height: tovw(117);
+    top: tovw(65);
+    left: tovw(-2);
+  }
+
+  @include mobile(landscape) {
+    width: tovw(172);
+    height: tovw(117);
+    top: tovw(65);
+    left: tovw(-2);
+  }
 }
 
 .boomShadow {
@@ -126,6 +429,36 @@
   height: tovw(368);
 
   transform: translate3d(calc(var(--parallax-x) * 3%), calc(var(--parallax-y) * 3%), 0);
+
+
+  @include tabletAll {
+    width: tovw(356);
+    height: tovw(240);
+  }
+
+  @include tablet {
+    top: tovw(166);
+    left: tovw(-68);
+  }
+
+  @include tablet(landscape) {
+    top: tovw(174);
+    left: tovw(-30);
+  }
+
+  @include mobile {
+    top: tovw(124);
+    left: tovw(-20);
+    width: tovw(195);
+    height: tovw(133);
+  }
+
+  @include mobile(landscape) {
+    top: tovw(124);
+    left: tovw(-20);
+    width: tovw(195);
+    height: tovw(133);
+  }
 }
 
 .planet {
@@ -136,6 +469,35 @@
   height: tovw(324);
 
   transform: rotate(calc(var(--parallax-x) * 5deg)) translate3d(calc(var(--parallax-x) * 1%), calc(var(--parallax-y) * 1%), 0);
+
+  @include tabletAll {
+    width: tovw(319);
+    height: tovw(318);
+  }
+
+  @include tablet {
+    bottom: tovw(460);
+    right: tovw(-24);
+  }
+
+  @include tablet(landscape) {
+    bottom: tovw(328);
+    right: tovw(-60);
+  }
+
+  @include mobile {
+    width: tovw(203);
+    height: tovw(204);
+    bottom: tovw(311);
+    right: tovw(-18);
+  }
+
+  @include mobile(landscape) {
+    width: tovw(180);
+    height: tovw(181);
+    bottom: tovw(198);
+    right: tovw(100);
+  }
 }
 
 .sceneAlt {
@@ -145,10 +507,39 @@
   right: tovw(20);
   width: tovw(793);
   height: tovw(620);
-  mask-image: url("/images/scene/mask.svg");
+  mask-image: url("/images/scene/mask-new.svg");
   mask-size: var(--mask-size);
   mask-position: center center;
   mask-repeat: no-repeat;
+
+  @include tabletAll {
+    width: tovw(620);
+    height: tovw(482);
+  }
+
+  @include tablet {
+    bottom: tovw(234);
+    right: tovw(-7);
+  }
+
+  @include tablet(landscape) {
+    bottom: tovw(100);
+    right: tovw(-45);
+  }
+
+  @include mobile {
+    width: tovw(400);
+    height: tovw(313);
+    bottom: tovw(166);
+    right: tovw(-10);
+  }
+
+  @include mobile(landscape) {
+    width: tovw(400);
+    height: tovw(318);
+    bottom: tovw(54);
+    right: tovw(90);
+  }
 }
 
 .space {
@@ -165,6 +556,27 @@
   height: tovw(350);
 
   transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+
+  @include tabletAll {
+    left: tovw(-18);
+    bottom: tovw(-49);
+    width: tovw(625);
+    height: tovw(275);
+  }
+
+  @include mobile {
+    left: tovw(-14);
+    bottom: tovw(-32);
+    width: tovw(398);
+    height: tovw(177);
+  }
+
+  @include mobile(landscape) {
+    left: tovw(17);
+    bottom: tovw(-11);
+    width: tovw(353);
+    height: tovw(157);
+  }
 }
 
 .earth {
@@ -175,6 +587,27 @@
   height: tovw(312);
 
   transform: rotate(calc(var(--parallax-x) * 5deg))  translate3d(calc(var(--parallax-x) * 1%), calc(var(--parallax-y) * 1%), 0);
+
+  @include tabletAll {
+    width: tovw(248);
+    height: tovw(246);
+    right: tovw(14);
+    top: tovw(-30);
+  }
+
+  @include mobile {
+    width: tovw(158);
+    height: tovw(158);
+    right: tovw(15);
+    top: tovw(-14);
+  }
+
+  @include mobile(landscape) {
+    width: tovw(140);
+    height: tovw(140);
+    right: tovw(30);
+    top: tovw(15);
+  }
 }
 
 .shadow {
@@ -185,6 +618,35 @@
   height: tovw(501);
 
   transform: translate3d(calc(var(--parallax-x) * 1%), calc(var(--parallax-y) * 1%), 0);
+
+  @include tabletAll {
+    width: tovw(506);
+    height: tovw(394);
+  }
+
+  @include tablet {
+    top: tovw(52);
+    left: tovw(20);
+  }
+
+  @include tablet(landscape) {
+    top: tovw(50);
+    left: tovw(20);
+  }
+
+  @include mobile {
+    top: tovw(38);
+    left: tovw(10);
+    width: tovw(328);
+    height: tovw(258);
+  }
+
+  @include mobile(landscape) {
+    top: tovw(60);
+    left: tovw(38);
+    width: tovw(291);
+    height: tovw(228);
+  }
 }
 
 .stars {
@@ -195,6 +657,35 @@
   height: tovw(288);
 
   transform: scale(calc(1 - (0.1 * var(--parallax-x)))) translate3d(calc(var(--parallax-x) * 1%), calc(var(--parallax-y) * 1%), 0);
+
+  @include tabletAll {
+    width: tovw(458);
+    height: tovw(226);
+  }
+
+  @include tablet {
+    top: tovw(81);
+    left: tovw(40);
+  }
+
+  @include tablet(landscape) {
+    top: tovw(81);
+    left: tovw(38);
+  }
+
+  @include mobile {
+    width: tovw(291);
+    height: tovw(145);
+    top: tovw(56);
+    left: tovw(22);
+  }
+
+  @include mobile(landscape) {
+    width: tovw(258);
+    height: tovw(129);
+    top: tovw(76);
+    left: tovw(50);
+  }
 }
 
 .bottomBg {
@@ -203,7 +694,25 @@
   bottom: tovw(-192);
   transform: translateX(-50%);
   width: 152vw;
-  border-radius: 50%;
   height: tovw(436);
+  border-radius: 50%;
   background: rgba(0, 48, 217, 0.24);
+
+  @include tablet {
+    width: 240vw;
+    bottom: tovw(-77);
+    height: tovw(375);
+  }
+
+  @include mobile {
+    width: 480vw;
+    bottom: tovw(-140);
+    height: tovw(375);
+  }
+
+  @include mobile(landscape) {
+    width: 220vw;
+    bottom: tovw(-258);
+    height: tovw(375);
+  }
 }

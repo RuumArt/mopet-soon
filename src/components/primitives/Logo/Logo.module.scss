@@ -2,4 +2,19 @@
   position: relative;
   width: tovw(158);
   height: tovw(33);
+
+  @include tabletAll {
+    width: tovw(145);
+    height: tovw(30);
+  }
+
+  @include mobile {
+    width: tovw(125);
+    height: tovw(25);
+  }
+
+  @include mobile(landscape) {
+    width: tovw(125);
+    height: tovw(25);
+  }
 }

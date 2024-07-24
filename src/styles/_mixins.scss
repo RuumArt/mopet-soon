@@ -287,3 +287,33 @@
   height: 100%;
   object-fit: #{$fit};
 }
+
+@mixin tabletAll {
+  @media (min-width: 768px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin tablet($orientation: portrait) {
+  @if ($orientation == portrait) {
+    @media (min-width: 768px) and (max-width: 1279px) and (orientation: $orientation) {
+      @content;
+    }
+  } @else {
+    @media (min-width: 933px) and (max-width: 1279px) and (orientation: $orientation) {
+      @content;
+    }
+  }
+}
+
+@mixin mobile($orientation: portrait) {
+  @if ($orientation == portrait) {
+    @media (min-width: 0px) and (max-width: 767px) and (orientation: $orientation) {
+      @content;
+    }
+  } @else {
+    @media (min-width: 0px) and (max-width: 932px) and (orientation: $orientation) {
+      @content;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { string } from 'prop-types';
+import { object, string } from 'prop-types';
 import clsx from 'clsx';
 
 import { PageLayout } from 'components/PageLayout';
@@ -10,10 +10,10 @@ import { Scene } from 'pages/Home/Scene';
 
 import s from './Home.module.scss';
 
-export const Home = ({ className }) => {
+export const Home = ({ className, data }) => {
   return (
     <PageLayout className={clsx(s.root, className)}>
-      <Scene />
+      <Scene data={data} />
       <div className={s.copy}>© 2024 Monpet</div>
     </PageLayout>
   );
@@ -21,4 +21,5 @@ export const Home = ({ className }) => {
 
 Home.propTypes = {
   className: string,
+  data: object,
 };

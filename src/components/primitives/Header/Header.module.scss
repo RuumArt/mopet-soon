@@ -8,4 +8,16 @@
   align-items: center;
   padding: tovw(40) tovw(78) tovw(40) tovw(126);
   width: 100%;
+
+  @include tabletAll {
+    padding: tovw(20) tovw(60);
+  }
+
+  @include mobile() {
+    padding: tovw(20);
+  }
+
+  @include mobile(landscape) {
+    padding: tovw(11) tovw(60);
+  }
 }

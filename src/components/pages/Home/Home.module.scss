@@ -12,4 +12,23 @@
   font-size: tovw(12);
   line-height: 1.35;
   opacity: 0.5;
+
+  @include tablet {
+    left: tovw(71);
+    right: auto;
+    bottom: tovw(29);
+  }
+
+  @include tablet(landscape) {
+    right: tovw(30);
+    bottom: tovw(20);
+  }
+
+  @include mobile {
+    display: none;
+  }
+
+  @include mobile(landscape) {
+    display: none;
+  }
 }

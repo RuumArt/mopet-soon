@@ -14,13 +14,23 @@ $zIndexes: (
 );
 
 :root {
-  --vw-screen: 360;
+  @include mobile {
+    --vw-screen: 390;
+  }
 
-  @include mq(md) {
+  @include mobile(landscape) {
+    --vw-screen: 844;
+  }
+
+  @include tablet(landscape) {
     --vw-screen: 1024;
   }
 
-  @include mq(2xl) {
+  @include tablet {
+    --vw-screen: 768;
+  }
+
+  @include mq(xl) {
     --vw-screen: 1440;
   }
 

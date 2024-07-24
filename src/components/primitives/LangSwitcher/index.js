@@ -6,12 +6,14 @@ import PropTypes from 'prop-types';
 import { Button } from 'components/Button';
 import s from './LangSwitcher.module.scss';
 
-export const LangSwitcher = ({ className, currentLang = 'en' }) => {
+export const LangSwitcher = ({ className, currentLang = 'en', onClick }) => {
   return (
     <Button
       className={clsx(s.root, className)}
       size="md"
       color="primary"
+      onClick={onClick}
+      data={currentLang === 'en' ? 'ru' : 'en'}
     >
       <span>{currentLang}</span>
 
@@ -63,4 +65,5 @@ export const LangSwitcher = ({ className, currentLang = 'en' }) => {
 
 LangSwitcher.propTypes = {
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };

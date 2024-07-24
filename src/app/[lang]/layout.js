@@ -1,4 +1,4 @@
-import { Providers } from './providers';
+import { Providers } from '../providers';
 
 import 'styles/globals.scss';
 
@@ -84,15 +84,19 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'ru' }];
+}
+
+export default function RootLayout({ children, params }) {
   return (
     <html
-      lang="en"
+      lang={params.lang}
       className={fonts?.className}
     >
       <body>
         <Providers>
-          <Header />
+          <Header lang={params.lang} />
           {children}
           <AppHooks />
         </Providers>

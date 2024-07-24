@@ -5,7 +5,9 @@ export default function Page() {
     <div>
       <h2>Not Found</h2>
       <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
+      <Link href="/Users/shadowbox/Documents/ROOOM PROJECTS/9 - MONPET/public">
+        Return Home
+      </Link>
     </div>
   );
 }

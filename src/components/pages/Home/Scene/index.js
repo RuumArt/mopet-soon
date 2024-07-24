@@ -13,7 +13,7 @@ import { gsap } from 'lib/gsap';
 
 import s from './Scene.module.scss';
 
-export const Scene = ({ className }) => {
+export const Scene = ({ className, data }) => {
   const rootRef = useRef(null);
   const [catRef] = [useRef(null)];
   const { addCallback, removeCallback } = useCursor();
@@ -69,11 +69,8 @@ export const Scene = ({ className }) => {
     >
       <div className={s.bg} />
       <div className={s.content}>
-        <div className={s.title}>Coming Soon</div>
-        <div className={s.text}>
-          Stay tuned, we are filling our website with beauty,  with boundless
-          love for animals
-        </div>
+        <div className={s.title}>{data.title}</div>
+        <div className={s.text}>{data.text}</div>
       </div>
       <div className={s.main}>
         <div
@@ -133,4 +130,5 @@ export const Scene = ({ className }) => {
 
 Scene.propTypes = {
   className: PropTypes.string,
+  data: PropTypes.object,
 };
