@@ -66,8 +66,7 @@
   left: tovw(58);
   width: tovw(308);
   height: tovw(262);
-
-  transform: translate3d(calc(var(--parallax-x) * 4%), calc(var(--parallax-y) * 4%), 0);
+  // transform: translate3d(calc(var(--parallax-x) * 4%), calc(var(--parallax-y) * 4%), 0);
 }
 
 .camera {
@@ -76,8 +75,7 @@
   left: tovw(140);
   width: tovw(523);
   height: tovw(300);
-
-  transform: translate3d(calc(var(--parallax-x) * 4%), calc(var(--parallax-y) * 4%), 0);
+  // transform: translate3d(calc(var(--parallax-x) * 4%), calc(var(--parallax-y) * 4%), 0);
 }
 
 .plane {
@@ -97,7 +95,7 @@
   width: tovw(252);
   height: tovw(284);
 
-  transform: rotate(calc(var(--parallax-x) * 2deg)) translate3d(calc(var(--parallax-x) * 3%), calc(var(--parallax-y) * 3%), 0);
+  transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
 }
 
 .flag {
@@ -127,7 +125,7 @@
   width: tovw(467);
   height: tovw(368);
 
-  transform: translate3d(calc(var(--parallax-x) * 4%), calc(var(--parallax-y) * 4%), 0);
+  transform: translate3d(calc(var(--parallax-x) * 3%), calc(var(--parallax-y) * 3%), 0);
 }
 
 .planet {
