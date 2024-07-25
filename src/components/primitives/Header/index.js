@@ -22,7 +22,7 @@ export const Header = ({ className, lang }) => {
   return (
     <div
       className={clsx(s.root, className, {
-        [s.isOtherPage]: pathName !== '/',
+        [s.isOtherPage]: pathName.includes('test'),
       })}
     >
       <Logo className={clsx(s.logo, 'site-logo')} />
