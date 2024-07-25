@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { Logo } from 'components/Logo';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 import { LangSwitcher } from 'components/LangSwitcher';
 import s from './Header.module.scss';
@@ -14,15 +14,22 @@ export const Header = ({ className, lang }) => {
   const router = useRouter();
 
   const handleSwitchLang = data => {
-    console.log(data);
     router.push(`/${data}`);
   };
+
+  const pathName = usePathname();
+
   return (
-    <div className={clsx(s.root, className)}>
-      <Logo />
+    <div
+      className={clsx(s.root, className, {
+        [s.isOtherPage]: pathName !== '/',
+      })}
+    >
+      <Logo className={clsx(s.logo, 'site-logo')} />
       <LangSwitcher
         currentLang={lang}
         onClick={handleSwitchLang}
+        className={clsx(s.switcher, 'switcher')}
       />
     </div>
   );

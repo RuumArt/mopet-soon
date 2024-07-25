@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import { Image } from 'components/Image';
 import { useCursor } from 'components/Cursor';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import useVariables from 'hooks/use-variables';
 import { clamp } from 'utils/math';
 
@@ -13,7 +13,7 @@ import { gsap } from 'lib/gsap';
 
 import s from './Scene.module.scss';
 
-export const Scene = ({ className, data }) => {
+export const Scene = ({ className, data, isActive = false }) => {
   const rootRef = useRef(null);
   const [catRef] = [useRef(null)];
   const { addCallback, removeCallback } = useCursor();
@@ -35,95 +35,119 @@ export const Scene = ({ className, data }) => {
     h: 0,
   });
 
-  const init = () => {
+  const handleEnter = useCallback(() => {
+    if (!isActive) return;
+
     gsap.to(rootRef.current, {
       '--mask-size': '100%',
       duration: 1,
       ease: 'power4.inOut',
     });
-  };
+  }, [isActive]);
+
+  const handleLeave = useCallback(() => {
+    if (!isActive) return;
+
+    gsap.to(rootRef.current, {
+      '--mask-size': '0%',
+      duration: 1,
+      ease: 'power4.inOut',
+    });
+  }, [isActive]);
 
   useEffect(() => {
-    init();
+    if (isActive) {
+      const resize = () => {
+        windowSize.h = window.innerHeight;
+        windowSize.w = window.innerWidth;
+      };
 
-    const resize = () => {
-      windowSize.h = window.innerHeight;
-      windowSize.w = window.innerWidth;
-    };
+      resize();
 
-    resize();
+      addCallback(handleCursorUpdate);
+      window.addEventListener('resize', resize);
 
-    addCallback(handleCursorUpdate);
-    window.addEventListener('resize', resize);
-
-    return () => {
-      removeCallback(handleCursorUpdate);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
+      return () => {
+        removeCallback(handleCursorUpdate);
+        window.removeEventListener('resize', resize);
+      };
+    }
+  }, [isActive]);
 
   return (
     <div
       className={clsx(s.root, className)}
       ref={rootRef}
     >
-      <div className={s.bg} />
+      <div className={s.bg}>
+        <div className={clsx(s.pluses, 'pluses')} />
+      </div>
       <div className={s.content}>
-        <div className={s.title}>{data.title}</div>
-        <div className={s.text}>{data.text}</div>
+        <div className={clsx(s.title, 'title')}>{data.title}</div>
+        <div className={clsx(s.text, 'text')}>{data.text}</div>
       </div>
       <div className={s.main}>
         <div
-          className={clsx(s.cat, s.el)}
+          className={clsx(s.cat, s.el, 'cat')}
           ref={catRef}
         >
           <Image src="/images/scene/cat.png" />
         </div>
-        <div className={clsx(s.camera, s.el)}>
+        <div className={clsx(s.camera, s.el, 'camera')}>
           <Image src="/images/scene/camera.png" />
         </div>
-        <div className={clsx(s.plane, s.el)}>
-          <Image src="/images/scene/plane.png" />
-        </div>
-        <div className={clsx(s.dog, s.el)}>
-          <Image src="/images/scene/dog.png" />
-        </div>
-        <div className={clsx(s.flag, s.el)}>
-          <Image src="/images/scene/flag.png" />
-        </div>
 
+        <div
+          className={clsx(s.el, s.planeGroup, 'plane')}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+        >
+          <div className={clsx(s.plane, s.el, 'plane')}>
+            <Image src="/images/scene/plane.png" />
+          </div>
+
+          <div className={clsx(s.dog, s.el, 'dog')}>
+            <Image src="/images/scene/dog.png" />
+          </div>
+          <div className={clsx(s.flag, s.el, 'flag')}>
+            <Image src="/images/scene/flag.png" />
+          </div>
+
+          <div className={s.sceneAlt}>
+            <div className={s.space}>
+              <Image src="/images/scene/space.jpg" />
+            </div>
+            <div className={clsx(s.moon, s.el)}>
+              <Image src="/images/scene/moon.png" />
+            </div>
+            <div className={clsx(s.earth, s.el)}>
+              <Image src="/images/scene/earth.png" />
+            </div>
+
+            <div className={clsx(s.shadow, s.el)}>
+              <Image src="/images/scene/shadow.png" />
+            </div>
+            <div className={clsx(s.stars, s.el)}>
+              <Image src="/images/scene/stars.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={clsx(s.boomWrap, 'boom')}>
         <div className={clsx(s.boom, s.el)}>
           <Image src="/images/scene/boom.png" />
         </div>
         <div className={clsx(s.boomShadow, s.el)}>
           <Image src="/images/scene/boom-shadow.png" />
         </div>
-
-        <div className={clsx(s.planet, s.el)}>
-          <Image src="/images/scene/earth-blue.png" />
-        </div>
-
-        <div className={clsx(s.bottomBg, s.el)} />
-
-        <div className={s.sceneAlt}>
-          <div className={s.space}>
-            <Image src="/images/scene/space.jpg" />
-          </div>
-          <div className={clsx(s.moon, s.el)}>
-            <Image src="/images/scene/moon.png" />
-          </div>
-          <div className={clsx(s.earth, s.el)}>
-            <Image src="/images/scene/earth.png" />
-          </div>
-
-          <div className={clsx(s.shadow, s.el)}>
-            <Image src="/images/scene/shadow.png" />
-          </div>
-          <div className={clsx(s.stars, s.el)}>
-            <Image src="/images/scene/stars.png" />
-          </div>
-        </div>
       </div>
+
+      <div className={clsx(s.planet, s.el, 'planet')}>
+        <Image src="/images/scene/earth-blue.png" />
+      </div>
+
+      <div className={clsx(s.bottomBg, s.el, 'bottom-bg')} />
     </div>
   );
 };

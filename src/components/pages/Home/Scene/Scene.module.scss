@@ -8,6 +8,7 @@
   height: get-real-vh(100);
   min-height: tovw(800);
   overflow: hidden;
+  //visibility: hidden;
 
   @include tablet {
     min-height: tovw(1024);
@@ -26,14 +27,31 @@
   }
 }
 
+.pluses {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+
+  background-image: url("/images/scene/plus-bg.svg");
+  background-repeat: repeat;
+  background-size: tovw(226);
+
+  opacity: 0;
+  transform-origin: top center;
+}
+
 .bg {
+  --offset: 140%;
   position: absolute;
   z-index: 1;
   inset: -2%;
-  //background-color: var(--blue);
-  background-image: url("/images/scene/plus-bg.svg"), radial-gradient(64.36% 118.04% at 69.61% 84.12%, #44ACFF 0%, #086EE6 100%);
-  background-repeat: repeat, no-repeat;
-  background-size: tovw(226), auto;
+  background-image: radial-gradient(64.36% 118.04% at calc(69.61% + var(--offset)) 84.12%, #44ACFF 0%, #086EE6 100%);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: left center;
   transform: translate3d(calc(var(--parallax-x) * 1%), calc(var(--parallax-y) * 1%), 0);
 
   @include tabletAll {
@@ -175,6 +193,8 @@
 
 .el {
   position: absolute;
+  pointer-events: none;
+  user-select: none;
 }
 
 .cat {
@@ -230,6 +250,7 @@
   left: tovw(140);
   width: tovw(523);
   height: tovw(300);
+  opacity: 1;
   // transform: translate3d(calc(var(--parallax-x) * 4%), calc(var(--parallax-y) * 4%), 0);
 
   @include tabletAll {
@@ -265,14 +286,25 @@
   }
 }
 
+.planeGroup {
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 90%;
+  z-index: 4;
+}
+
 .plane {
   z-index: 3;
   bottom: tovw(8);
   right: 0;
   width: tovw(840);
   height: tovw(364);
+  opacity: 1;
 
-  transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+  & > * {
+    transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+  }
 
   @include tabletAll {
     width: tovw(666);
@@ -311,7 +343,9 @@
   width: tovw(252);
   height: tovw(284);
 
-  transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+  & > * {
+    transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+  }
 
   @include tabletAll {
     width: tovw(216);
@@ -349,8 +383,11 @@
   right: tovw(478);
   width: tovw(253);
   height: tovw(382);
+  transform-origin: 35% 100%;
 
-  transform: rotate(calc(var(--parallax-x) * -2deg)) translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+  & > * {
+    transform: rotate(calc(var(--parallax-x) * -2deg)) translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
+  }
 
   @include tabletAll {
     width: tovw(200);
@@ -382,14 +419,25 @@
   }
 }
 
-.boom {
+.boomWrap {
+  position: absolute;
   z-index: 4;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+}
+
+.boom {
+  z-index: 2;
   top: tovw(92);
   left: tovw(-20);
   width: tovw(413);
   height: tovw(281);
 
-  transform: translate3d(calc(var(--parallax-x) * 3%), calc(var(--parallax-y) * 3%), 0);
+  & > * {
+    transform: translate3d(calc(var(--parallax-x) * 3%), calc(var(--parallax-y) * 3%), 0);
+  }
 
   @include tabletAll {
     width: tovw(356);
@@ -422,14 +470,15 @@
 }
 
 .boomShadow {
-  z-index: 3;
-  top: tovw(146);
+  z-index: 1;
+  top: tovw(170);
   left: tovw(-58);
   width: tovw(467);
-  height: tovw(368);
+  height: tovw(328);
 
-  transform: translate3d(calc(var(--parallax-x) * 3%), calc(var(--parallax-y) * 3%), 0);
-
+  & > * {
+    transform: translate3d(calc(var(--parallax-x) * 3%), calc(var(--parallax-y) * 3%), 0);
+  }
 
   @include tabletAll {
     width: tovw(356);
@@ -468,7 +517,9 @@
   width: tovw(391);
   height: tovw(324);
 
-  transform: rotate(calc(var(--parallax-x) * 5deg)) translate3d(calc(var(--parallax-x) * 1%), calc(var(--parallax-y) * 1%), 0);
+  & > * {
+    transform: rotate(calc(var(--parallax-x) * 5deg)) translate3d(calc(var(--parallax-x) * 1%), calc(var(--parallax-y) * 1%), 0);
+  }
 
   @include tabletAll {
     width: tovw(319);
@@ -697,6 +748,8 @@
   height: tovw(436);
   border-radius: 50%;
   background: rgba(0, 48, 217, 0.24);
+  opacity: 1;
+  transform-origin: top center;
 
   @include tablet {
     width: 240vw;

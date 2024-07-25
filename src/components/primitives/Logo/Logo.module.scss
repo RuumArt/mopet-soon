@@ -1,20 +1,54 @@
 .root {
-  position: relative;
-  width: tovw(158);
-  height: tovw(33);
+  display: flex;
+  align-items: flex-end;
+}
 
-  @include tabletAll {
-    width: tovw(145);
-    height: tovw(30);
+.letter {
+  display: block;
+  opacity: 0;
+
+  &:nth-child(1) {
+    position: relative;
+    width: tovw(37);
+    height: tovw(31.8);
+    margin-bottom: tovw(1);
+    margin-right: 1px;
+    opacity: 1;
+
+    svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: translateX(155%) scale(1.38);
+    }
   }
 
-  @include mobile {
-    width: tovw(125);
-    height: tovw(25);
+  &:nth-child(2) {
+    width: tovw(24);
+    height: tovw(22);
+    margin-right: 1px;
   }
 
-  @include mobile(landscape) {
-    width: tovw(125);
-    height: tovw(25);
+  &:nth-child(3) {
+    width: tovw(23);
+    height: tovw(22);
+    margin-right: tovw(3);
+  }
+
+  &:nth-child(4) {
+    width: tovw(22);
+    height: tovw(22);
+    margin-right: tovw(2);
+  }
+
+  &:nth-child(5) {
+    width: tovw(22);
+    height: tovw(22);
+    margin-right: tovw(1);
+  }
+
+  &:nth-child(6) {
+    width: tovw(20);
+    height: tovw(23);
   }
 }
