@@ -48,24 +48,39 @@ export const TestPage = ({ className }) => {
   const [duration, setDuration] = useState(1);
   const planetRef = useRef(null);
 
-  const handleAnimate = useCallback(() => {
-    gsap.killTweensOf(planetRef.current);
+  const handleAnimate = useCallback(
+    dd => {
+      gsap.killTweensOf(planetRef.current);
 
-    gsap.from(planetRef.current, {
-      ...animationData,
-      ease,
-      duration,
-    });
+      gsap.set(planetRef.current, {
+        clearProps: 'all',
+      });
 
-    // gsap.from(planetRef.current, {
-    //   yPercent: -150,
-    //   rotation: 45,
-    //   skewY: '10deg',
-    //   skewX: '20deg',
-    //   duration: 2,
-    //   ease,
-    // });
-  }, [animationData, ease, duration]);
+      if (dd === 'set') {
+        gsap.set(planetRef.current, {
+          ...animationData,
+          ease,
+          duration,
+        });
+      } else {
+        gsap.from(planetRef.current, {
+          ...animationData,
+          ease,
+          duration,
+        });
+      }
+
+      // gsap.from(planetRef.current, {
+      //   yPercent: -150,
+      //   rotation: 45,
+      //   skewY: '10deg',
+      //   skewX: '20deg',
+      //   duration: 2,
+      //   ease,
+      // });
+    },
+    [animationData, ease, duration]
+  );
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -73,7 +88,7 @@ export const TestPage = ({ className }) => {
     setAnimationData(prevState => {
       return {
         ...prevState,
-        [name]: parseInt(value),
+        [name]: value,
       };
     });
   };
@@ -116,12 +131,26 @@ export const TestPage = ({ className }) => {
               value={duration}
             />
           </div>
-          <button
-            className={s.btn}
-            onClick={handleAnimate}
-          >
-            Анимировать
-          </button>
+          <div className={s.group}>
+            <button
+              className={s.btn}
+              onClick={() => {
+                handleAnimate('set');
+              }}
+            >
+              Посмотреть положение
+            </button>
+          </div>
+          <div className={s.group}>
+            <button
+              className={s.btn}
+              onClick={() => {
+                handleAnimate('from');
+              }}
+            >
+              Анимировать
+            </button>
+          </div>
         </div>
         <div
           className={clsx(s.planet)}
