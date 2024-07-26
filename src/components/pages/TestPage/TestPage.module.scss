@@ -22,7 +22,17 @@
     width: 100%;
     border: 1px solid var(--white);
     padding: tovw(12) tovw(16);
-    margin-bottom: tovw(12);
+  }
+
+  .group {
+    &:not(:last-child) {
+      margin-bottom: tovw(12);
+    }
+  }
+
+  .label {
+    font-weight: bold;
+    margin-bottom: tovw(4);
   }
 
   .btn {
