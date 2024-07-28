@@ -29,7 +29,9 @@ export const Header = ({ className, lang }) => {
         [s.isLoad]: siteLoad,
       })}
     >
-      <Logo className={clsx(s.logo, 'site-logo')} />
+      <div className={clsx(s.logoWrap, 'logo-wrap')}>
+        <Logo className={clsx(s.logo, 'site-logo')} />
+      </div>
       <LangSwitcher
         currentLang={lang}
         onClick={handleSwitchLang}

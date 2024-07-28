@@ -531,7 +531,7 @@
   }
 
   @include mobile(landscape) {
-    bottom: tovw(146);
+    bottom: tovw(142);
     left: tovw(41);
   }
 }
@@ -726,7 +726,6 @@
   bottom: tovw(-50);
   width: tovw(840);
   height: tovw(568);
-
   transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
 
   @include tabletAll {
@@ -751,6 +750,7 @@
   @include mobile(landscape) {
     width: tovw(376);
     height: tovw(250);
+    bottom: tovw(-70);
   }
 }
 
@@ -777,15 +777,15 @@
 
   @include mobile {
     left: tovw(18);
-    bottom: tovw(28);
+    bottom: tovw(26);
     width: tovw(384);
     height: tovw(177);
   }
 
   @include mobile(landscape) {
-    left: tovw(2);
+    left: tovw(-2);
     bottom: tovw(67);
-    width: tovw(368);
+    width: tovw(362);
     height: tovw(157);
   }
 }

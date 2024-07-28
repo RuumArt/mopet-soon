@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: tovw(30) tovw(95) tovw(30) tovw(126);
   width: 100%;
@@ -24,40 +24,58 @@
   .switcher {
     opacity: 0;
   }
+}
 
-  .logo {
-    --scale: 5;
-    --offset-left: 8.9vw;
-    --offset-top: 3.7vw;
+.logoWrap {
+  width: tovw(156);
+  height: tovw(32);
 
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translateY(-50%) translateX(-50%) scale(var(--scale));
+  @include mobile {
+    width: tovw(126);
+    height: tovw(25);
+  }
 
-    @include tablet {
-      --scale: 3.5;
-      --offset-left: 8.4vw;
-      --offset-top: 5.5vw;
-    }
+  @include mobile(landscape) {
+    width: tovw(126);
+    height: tovw(25);
+  }
+}
 
-    @include tablet('landscape') {
-      --scale: 3.5;
-      --offset-left: 6.4vw;
-      --offset-top: 4.3vw;
-    }
+.logo {
+  --scale: 5;
 
-    @include mobile {
-      --scale: 2;
-      --offset-left: 5.4vw;
-      --offset-top: 6.8vw;
-    }
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  //transform: scale(var(--scale));
+  transform: scale(var(--scale));
+  margin-left: tovw(-78);
+  margin-top: tovw(-16);
 
-    @include mobile('landscape') {
-      --scale: 2;
-      --offset-left: 7.2vw;
-      --offset-top: 3.5vw;
-    }
+  @include mobile {
+    margin-left: tovw(-63);
+    margin-top: tovw(-12);
+  }
+
+  @include mobile(landscape) {
+    margin-left: tovw(-63);
+    margin-top: tovw(-12);
+  }
+
+  @include tablet {
+    --scale: 3.5;
+  }
+
+  @include tablet('landscape') {
+    --scale: 3.5;
+  }
+
+  @include mobile {
+    --scale: 2;
+  }
+
+  @include mobile('landscape') {
+    --scale: 2;
   }
 }
 
@@ -68,8 +86,7 @@
 
 .isLoad {
   .logo {
-    top: var(--offset-top);
-    left: var(--offset-left);
+    position: relative;
     transform: scale(1);
   }
 }

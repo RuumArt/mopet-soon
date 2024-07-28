@@ -97,10 +97,10 @@ export const Scene = forwardRef(
             className={clsx(s.cat, s.el, 'cat')}
             ref={catRef}
           >
-            <Image src="/images/scene/cat.png" />
+            <Image src="/images/scene/cat.webp" />
           </div>
           <div className={clsx(s.camera, s.el, 'camera')}>
-            <Image src="/images/scene/camera.png" />
+            <Image src="/images/scene/camera.webp" />
           </div>
 
           <div
@@ -110,18 +110,18 @@ export const Scene = forwardRef(
           >
             <div className={s.planeGroupInner}>
               <div className={clsx(s.plane, s.el, 'plane')}>
-                <Image src="/images/scene/plane.png" />
+                <Image src="/images/scene/plane.webp" />
               </div>
               <div className={clsx(s.dog, s.el, 'dog')}>
-                <Image src="/images/scene/dog-2.png" />
+                <Image src="/images/scene/dog-2.webp" />
               </div>
               <div className={clsx(s.flag, s.el, 'flag')}>
-                <Image src="/images/scene/flag.png" />
+                <Image src="/images/scene/flag.webp" />
               </div>
             </div>
 
             <div className={clsx(s.planet, s.el, 'planet')}>
-              <Image src="/images/scene/earth-blue.png" />
+              <Image src="/images/scene/earth-blue.webp" />
             </div>
 
             <div className={s.sceneAlt}>
@@ -130,25 +130,25 @@ export const Scene = forwardRef(
               </div>
 
               <div className={clsx(s.earth, s.el)}>
-                <Image src="/images/scene/earth.png" />
+                <Image src="/images/scene/earth.webp" />
               </div>
 
               <div className={s.moonGroup}>
                 <div className={clsx(s.moon, s.el)}>
-                  <Image src="/images/scene/moon.png" />
+                  <Image src="/images/scene/moon.webp" />
                 </div>
                 <div className={clsx(s.dog, s.dogAlt, s.el)}>
-                  <Image src="/images/scene/dog.png" />
+                  <Image src="/images/scene/dog.webp" />
                 </div>
                 <div className={clsx(s.shadow, s.el)}>
-                  <Image src="/images/scene/shadow.png" />
+                  <Image src="/images/scene/shadow.webp" />
                 </div>
                 <div className={clsx(s.flag, s.flagAlt, s.el, 'flag')}>
-                  <Image src="/images/scene/flag.png" />
+                  <Image src="/images/scene/flag.webp" />
                 </div>
               </div>
               <div className={clsx(s.stars, s.el)}>
-                <Image src="/images/scene/stars.png" />
+                <Image src="/images/scene/stars.webp" />
               </div>
             </div>
           </div>
@@ -156,10 +156,10 @@ export const Scene = forwardRef(
 
         <div className={clsx(s.boomWrap, 'boom')}>
           <div className={clsx(s.boom, s.el)}>
-            <Image src="/images/scene/boom.png" />
+            <Image src="/images/scene/boom.webp" />
           </div>
           <div className={clsx(s.boomShadow, s.el)}>
-            <Image src="/images/scene/boom-shadow.png" />
+            <Image src="/images/scene/boom-shadow.webp" />
           </div>
         </div>
 

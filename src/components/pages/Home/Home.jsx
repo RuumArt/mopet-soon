@@ -15,6 +15,8 @@ import { getDD } from 'hooks/use-device-detect';
 import { useAppStore } from 'context/use-app-store';
 import s from './Home.module.scss';
 
+/* TODO: Clear animations */
+
 export const Home = ({ className, data }) => {
   const sceneRef = useRef(null);
 
@@ -24,9 +26,7 @@ export const Home = ({ className, data }) => {
     const dd = getDD();
 
     const logo = document.querySelector('.site-logo');
-
-    const top = gsap.getProperty(logo, '--offset-top', 'vw');
-    const left = gsap.getProperty(logo, '--offset-left', 'vw');
+    const logoWrap = document.querySelector('.logo-wrap');
 
     const firstLetter = logo.querySelector('.letter:first-child svg');
     const letters = logo.querySelectorAll('.letter:not(:first-child)');
@@ -52,9 +52,9 @@ export const Home = ({ className, data }) => {
       onComplete: () => {
         setSiteLoad(true);
 
-        // gsap.set(logo, {
-        //   clearProps: 'all',
-        // });
+        gsap.set(logo, {
+          clearProps: 'all',
+        });
 
         gsap.set(bottomBg, {
           clearProps: 'all',
@@ -89,9 +89,9 @@ export const Home = ({ className, data }) => {
     tl.to(
       logo,
       {
-        top,
-        yPercent: 0,
+        top: logoWrap.offsetTop,
         scale: 1,
+        marginTop: 0,
         ease: 'circ.inOut',
       },
       '+=0.2'
@@ -113,8 +113,8 @@ export const Home = ({ className, data }) => {
     tl.to(
       logo,
       {
-        left,
-        xPercent: 0,
+        left: logoWrap.offsetLeft,
+        marginLeft: 0,
         ease: 'circ.inOut',
       },
       '+=0.2'
