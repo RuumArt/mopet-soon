@@ -306,6 +306,18 @@
   }
 }
 
+@mixin mobileAll {
+  @media ((min-width: 0px) and (max-width: 932px) and (orientation: landscape)) or ((min-width: 0px) and (max-width: 767px) and (orientation: portrait)) {
+    @content;
+  }
+}
+
+@mixin mobileLg {
+  @media (min-width: 0px) and (max-width: 767px) and (min-height: 740px) and (orientation: portrait) {
+    @content;
+  }
+}
+
 @mixin mobile($orientation: portrait) {
   @if ($orientation == portrait) {
     @media (min-width: 0px) and (max-width: 767px) and (orientation: $orientation) {
@@ -315,5 +327,11 @@
     @media (min-width: 0px) and (max-width: 932px) and (orientation: $orientation) {
       @content;
     }
+  }
+}
+
+@mixin lang($lang) {
+  &:lang(#{$lang}) {
+    @content;
   }
 }

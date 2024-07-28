@@ -10,17 +10,18 @@ import { PageLayout } from 'components/PageLayout';
 
 import { Scene } from 'pages/Home/Scene';
 
+import { getDD } from 'hooks/use-device-detect';
+
+import { useAppStore } from 'context/use-app-store';
 import s from './Home.module.scss';
 
 export const Home = ({ className, data }) => {
-  const [isComplete, setComplete] = useState(false);
+  const sceneRef = useRef(null);
+
+  const { setSiteLoad } = useAppStore();
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      onComplete: () => {
-        setComplete(true);
-      },
-    });
+    const dd = getDD();
 
     const logo = document.querySelector('.site-logo');
 
@@ -38,7 +39,7 @@ export const Home = ({ className, data }) => {
     const cat = document.querySelector('.cat');
     const camera = document.querySelector('.camera');
     const plane = document.querySelector('.plane');
-    const flag = document.querySelector('.flag');
+    const flag = document.querySelectorAll('.flag');
     const planet = document.querySelector('.planet');
 
     const title = document.querySelector('.title');
@@ -46,6 +47,20 @@ export const Home = ({ className, data }) => {
 
     const boom = document.querySelector('.boom');
     const boomShadow = document.querySelector('.boom-shadow');
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        setSiteLoad(true);
+
+        // gsap.set(logo, {
+        //   clearProps: 'all',
+        // });
+
+        gsap.set(bottomBg, {
+          clearProps: 'all',
+        });
+      },
+    });
 
     tl.to(firstLetter, {
       x: 0,
@@ -151,12 +166,16 @@ export const Home = ({ className, data }) => {
       '<'
     );
 
+    const catInner = cat.querySelector('img');
+    const matrixCat = new DOMMatrixReadOnly(
+      window.getComputedStyle(catInner).getPropertyValue('transform')
+    );
+
     tl.from(
       cat,
       {
         scale: 1.5,
-        opacity: 0,
-        xPercent: -150,
+        xPercent: -150 * matrixCat.a,
         yPercent: 130,
         ease: 'circ.inOut',
       },
@@ -188,17 +207,18 @@ export const Home = ({ className, data }) => {
     );
 
     tl.to(flag, {
-      rotation: -5,
+      rotation: -1,
       ease: 'circ.inOut',
     });
 
     tl.from(planet, {
-      yPercent: -150,
-      rotation: 45,
-      skewY: '10deg',
-      skewX: '20deg',
-      duration: 2,
-      ease: 'elastic.out(1, 0.4)',
+      yPercent: -200,
+      xPercent: -40,
+      rotation: 20,
+      skewY: 4,
+      skewX: 5,
+      duration: 1.9,
+      ease: 'elastic.out(1, 0.6)',
     });
 
     tl.from(
@@ -233,6 +253,18 @@ export const Home = ({ className, data }) => {
       '-=0.5'
     );
 
+    if (dd.isTouch) {
+      tl.to(
+        sceneRef.current,
+        {
+          '--mask-size': '100%',
+          duration: 1,
+          ease: 'power4.inOut',
+        },
+        '<+=0.5'
+      );
+    }
+
     // tl.from(
     //   boomShadow,
     //   {
@@ -253,7 +285,8 @@ export const Home = ({ className, data }) => {
     <PageLayout className={clsx(s.root, className)}>
       <Scene
         data={data}
-        isActive={isComplete}
+        isActive
+        ref={sceneRef}
       />
       <div className={s.copy}>© 2024 Monpet</div>
     </PageLayout>

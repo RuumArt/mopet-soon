@@ -15,7 +15,7 @@ export const LangSwitcher = ({ className, currentLang = 'en', onClick }) => {
       onClick={onClick}
       data={currentLang === 'en' ? 'ru' : 'en'}
     >
-      <span>{currentLang}</span>
+      <span>{currentLang === 'en' ? 'ru' : 'en'}</span>
 
       <svg
         viewBox="0 0 58 47"

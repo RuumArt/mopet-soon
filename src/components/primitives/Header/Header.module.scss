@@ -6,7 +6,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: tovw(40) tovw(78) tovw(40) tovw(126);
+  padding: tovw(30) tovw(95) tovw(30) tovw(126);
   width: 100%;
 
   @include tabletAll {
@@ -28,16 +28,48 @@
   .logo {
     --scale: 5;
     --offset-left: 8.9vw;
-    --offset-top: 4.4vw;
+    --offset-top: 3.7vw;
 
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translateY(-50%) translateX(-50%) scale(var(--scale));
+
+    @include tablet {
+      --scale: 3.5;
+      --offset-left: 8.4vw;
+      --offset-top: 5.5vw;
+    }
+
+    @include tablet('landscape') {
+      --scale: 3.5;
+      --offset-left: 6.4vw;
+      --offset-top: 4.3vw;
+    }
+
+    @include mobile {
+      --scale: 2;
+      --offset-left: 5.4vw;
+      --offset-top: 6.8vw;
+    }
+
+    @include mobile('landscape') {
+      --scale: 2;
+      --offset-left: 7.2vw;
+      --offset-top: 3.5vw;
+    }
   }
 }
 
 .isOtherPage {
   opacity: 0;
   visibility: hidden;
+}
+
+.isLoad {
+  .logo {
+    top: var(--offset-top);
+    left: var(--offset-left);
+    transform: scale(1);
+  }
 }

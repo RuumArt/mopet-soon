@@ -8,9 +8,12 @@ import { Logo } from 'components/Logo';
 import { useRouter, usePathname } from 'next/navigation';
 
 import { LangSwitcher } from 'components/LangSwitcher';
+import { useAppStore } from 'context/use-app-store';
 import s from './Header.module.scss';
 
 export const Header = ({ className, lang }) => {
+  const { siteLoad } = useAppStore();
+
   const router = useRouter();
 
   const handleSwitchLang = data => {
@@ -23,6 +26,7 @@ export const Header = ({ className, lang }) => {
     <div
       className={clsx(s.root, className, {
         [s.isOtherPage]: pathName.includes('test'),
+        [s.isLoad]: siteLoad,
       })}
     >
       <Logo className={clsx(s.logo, 'site-logo')} />

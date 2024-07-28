@@ -2,7 +2,7 @@ import * as ReactDeviceDetect from 'react-device-detect';
 
 import { useIsHydrated } from './use-is-hydrated';
 
-function getDD() {
+export function getDD() {
   const isTouchDevice =
     'ontouchstart' in window ||
     navigator.maxTouchPoints > 0 ||
