@@ -25,15 +25,15 @@ export const Scene = forwardRef(
     const { addCallback, removeCallback } = useCursor();
 
     const handleCursorUpdate = e => {
-      // const { x, y } = e;
-      //
-      // const xProgress = clamp(x / (windowSize.w / 2) - 1, -1, 1);
-      // const yProgress = clamp(y / (windowSize.h / 2) - 1, -1, 1);
-      //
-      // gsap.set(rootRef.current, {
-      //   '--parallax-x': xProgress * 0.5,
-      //   '--parallax-y': yProgress * 0.5,
-      // });
+      const { x, y } = e;
+
+      const xProgress = clamp(x / (windowSize.w / 2) - 1, -1, 1);
+      const yProgress = clamp(y / (windowSize.h / 2) - 1, -1, 1);
+
+      gsap.set(rootRef.current, {
+        '--parallax-x': xProgress * 0.5,
+        '--parallax-y': yProgress * 0.5,
+      });
     };
 
     const windowSize = useVariables({
