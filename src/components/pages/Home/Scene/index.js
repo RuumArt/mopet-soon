@@ -25,15 +25,15 @@ export const Scene = forwardRef(
     const { addCallback, removeCallback } = useCursor();
 
     const handleCursorUpdate = e => {
-      const { x, y } = e;
-
-      const xProgress = clamp(x / (windowSize.w / 2) - 1, -1, 1);
-      const yProgress = clamp(y / (windowSize.h / 2) - 1, -1, 1);
-
-      gsap.set(rootRef.current, {
-        '--parallax-x': xProgress * 0.5,
-        '--parallax-y': yProgress * 0.5,
-      });
+      // const { x, y } = e;
+      //
+      // const xProgress = clamp(x / (windowSize.w / 2) - 1, -1, 1);
+      // const yProgress = clamp(y / (windowSize.h / 2) - 1, -1, 1);
+      //
+      // gsap.set(rootRef.current, {
+      //   '--parallax-x': xProgress * 0.5,
+      //   '--parallax-y': yProgress * 0.5,
+      // });
     };
 
     const windowSize = useVariables({
@@ -51,15 +51,15 @@ export const Scene = forwardRef(
       });
     }, [isActive, dd]);
 
-    const handleLeave = useCallback(() => {
-      if (!isActive || dd.isTouch) return;
-
-      gsap.to(rootRef.current, {
-        '--mask-size': '0%',
-        duration: 1,
-        ease: 'power4.inOut',
-      });
-    }, [isActive, dd]);
+    // const handleLeave = useCallback(() => {
+    //   if (!isActive || dd.isTouch) return;
+    //
+    //   gsap.to(rootRef.current, {
+    //     '--mask-size': '0%',
+    //     duration: 1,
+    //     ease: 'power4.inOut',
+    //   });
+    // }, [isActive, dd]);
 
     useEffect(() => {
       if (isActive) {
@@ -97,58 +97,58 @@ export const Scene = forwardRef(
             className={clsx(s.cat, s.el, 'cat')}
             ref={catRef}
           >
-            <Image src="/images/scene/cat.webp" />
+            <Image src="/images/scene/x4/cat.webp" />
           </div>
           <div className={clsx(s.camera, s.el, 'camera')}>
-            <Image src="/images/scene/camera.webp" />
+            <Image src="/images/scene/x4/camera.webp" />
           </div>
 
           <div
             className={clsx(s.el, s.planeGroup, 'plane')}
             onMouseEnter={handleEnter}
-            onMouseLeave={handleLeave}
+            // onMouseLeave={handleLeave}
           >
             <div className={s.planeGroupInner}>
               <div className={clsx(s.plane, s.el, 'plane')}>
-                <Image src="/images/scene/plane.webp" />
+                <Image src="/images/scene/x4/plane.webp" />
               </div>
               <div className={clsx(s.dog, s.el, 'dog')}>
-                <Image src="/images/scene/dog-2.webp" />
+                <Image src="/images/scene/x4/dog.webp" />
               </div>
               <div className={clsx(s.flag, s.el, 'flag')}>
-                <Image src="/images/scene/flag.webp" />
+                <Image src="/images/scene/x4/flag.webp" />
               </div>
             </div>
 
             <div className={clsx(s.planet, s.el, 'planet')}>
-              <Image src="/images/scene/earth-blue.webp" />
+              <Image src="/images/scene/x4/planet.webp" />
             </div>
 
             <div className={s.sceneAlt}>
               <div className={s.space}>
-                <Image src="/images/scene/space.jpg" />
+                <Image src="/images/scene/x4/space.webp" />
               </div>
 
               <div className={clsx(s.earth, s.el)}>
-                <Image src="/images/scene/earth.webp" />
+                <Image src="/images/scene/x4/earth.webp" />
               </div>
 
               <div className={s.moonGroup}>
                 <div className={clsx(s.moon, s.el)}>
-                  <Image src="/images/scene/moon.webp" />
+                  <Image src="/images/scene/x4/moon.webp" />
                 </div>
                 <div className={clsx(s.dog, s.dogAlt, s.el)}>
-                  <Image src="/images/scene/dog.webp" />
+                  <Image src="/images/scene/x4/dog.webp" />
                 </div>
                 <div className={clsx(s.shadow, s.el)}>
-                  <Image src="/images/scene/shadow.webp" />
+                  <Image src="/images/scene/x4/shadow.webp" />
                 </div>
                 <div className={clsx(s.flag, s.flagAlt, s.el, 'flag')}>
-                  <Image src="/images/scene/flag.webp" />
+                  <Image src="/images/scene/x4/flag.webp" />
                 </div>
               </div>
               <div className={clsx(s.stars, s.el)}>
-                <Image src="/images/scene/stars.webp" />
+                <Image src="/images/scene/x4/stars.webp" />
               </div>
             </div>
           </div>
@@ -156,10 +156,10 @@ export const Scene = forwardRef(
 
         <div className={clsx(s.boomWrap, 'boom')}>
           <div className={clsx(s.boom, s.el)}>
-            <Image src="/images/scene/boom.webp" />
+            <Image src="/images/scene/x4/boom.webp" />
           </div>
           <div className={clsx(s.boomShadow, s.el)}>
-            <Image src="/images/scene/boom-shadow.webp" />
+            <Image src="/images/scene/x4/boom-shadow.webp" />
           </div>
         </div>
 

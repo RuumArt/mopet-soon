@@ -17,7 +17,7 @@ export const Image = ({
   fit = 'cover',
   sizes = IMAGE_SIZES,
   priority = true,
-  quality = 95,
+  quality = 100,
   onLoad = () => {},
 }) => {
   const mods = getModClasses(s, { fit });
@@ -43,6 +43,10 @@ export const Image = ({
       priority={priority}
       quality={quality}
       onLoad={onLoad}
+      loader={({ src }) => {
+        return src;
+      }}
+      unoptimized
       {...widthProps}
     />
   );

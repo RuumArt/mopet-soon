@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
 import { object, string } from 'prop-types';
 import clsx from 'clsx';
 
@@ -22,7 +22,8 @@ export const Home = ({ className, data }) => {
 
   const { setSiteLoad } = useAppStore();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    setSiteLoad(false);
     const dd = getDD();
 
     const logo = document.querySelector('.site-logo');
@@ -46,7 +47,7 @@ export const Home = ({ className, data }) => {
     const text = document.querySelector('.text');
 
     const boom = document.querySelector('.boom');
-    const boomShadow = document.querySelector('.boom-shadow');
+    // const boomShadow = document.querySelector('.boom-shadow');
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -55,7 +56,6 @@ export const Home = ({ className, data }) => {
         gsap.set(logo, {
           clearProps: 'all',
         });
-
         gsap.set(bottomBg, {
           clearProps: 'all',
         });
@@ -155,6 +155,15 @@ export const Home = ({ className, data }) => {
     );
 
     /* Scene */
+
+    tl.to(
+      pluses,
+      {
+        '--progress-bg': 1,
+        ease: 'circ.inOut',
+      },
+      '<'
+    );
 
     tl.from(
       bottomBg,
@@ -261,7 +270,7 @@ export const Home = ({ className, data }) => {
           duration: 1,
           ease: 'power4.inOut',
         },
-        '<+=0.5'
+        '<+=1.5'
       );
     }
 

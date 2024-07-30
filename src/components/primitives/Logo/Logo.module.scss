@@ -7,6 +7,10 @@
   display: block;
   opacity: 0;
 
+  svg {
+    overflow: unset;
+  }
+
   &:nth-child(1) {
     position: relative;
     width: tovw(37);

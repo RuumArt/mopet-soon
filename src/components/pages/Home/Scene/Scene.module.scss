@@ -28,6 +28,9 @@
 }
 
 .pluses {
+  --progress-bg: 0;
+  --p-offset: #{tovw(244)};
+
   position: absolute;
   z-index: 1;
   left: 0;
@@ -42,15 +45,33 @@
   opacity: 0;
   transform-origin: top center;
 
+  clip-path: inset(0 0 calc(var(--p-offset) * var(--progress-bg)) 0);
+
   @include tabletAll {
     background-size: tovw(200);
   }
 
+  @include tablet {
+    --p-offset: #{tovw(298)};
+  }
+
+  @include tablet(landscape) {
+    --p-offset: #{tovw(298)};
+  }
+
+  @include mobileLg {
+    --p-offset: 45vh;
+  }
+
   @include mobile {
+    --p-offset: 40vh;
+
     background-size: tovw(100);
   }
 
   @include mobile(landscape) {
+    --p-offset: #{tovw(117)};
+
     background-size: tovw(100);
   }
 }
@@ -226,7 +247,7 @@
 }
 
 .cat {
-  z-index: 3;
+  z-index: 5;
   bottom: tovw(17);
   left: tovw(58);
   width: tovw(308);
@@ -288,7 +309,7 @@
 }
 
 .camera {
-  z-index: 2;
+  z-index: 4;
   bottom: tovw(4);
   left: tovw(140);
   width: tovw(523);
@@ -407,9 +428,9 @@
 .dog {
   z-index: 6;
   bottom: tovw(204);
-  right: tovw(290);
+  right: tovw(250);
   width: tovw(286);
-  height: tovw(290);
+  height: tovw(314);
 
   //& > * {
   //  transform: translate3d(calc(var(--parallax-x) * 2%), calc(var(--parallax-y) * 2%), 0);
@@ -422,46 +443,51 @@
 
   @include tablet {
     bottom: tovw(160);
-    right: tovw(236);
+    right: tovw(226);
   }
 
   @include tablet(landscape) {
     bottom: tovw(160);
-    right: tovw(238);
+    right: tovw(228);
   }
 
   @include mobile {
     bottom: tovw(102);
-    right: tovw(152);
+    right: tovw(142);
     width: tovw(132);
     height: tovw(149);
   }
 
   @include mobile(landscape) {
     bottom: tovw(90);
-    right: tovw(136);
+    right: tovw(126);
     width: tovw(118);
     height: tovw(134);
   }
 }
 
 .dogAlt {
-  bottom: tovw(196);
-  right: tovw(310);
+  bottom: tovw(192);
+  right: tovw(287);
 
-  @include tabletAll {
+  @include tablet {
     bottom: tovw(188);
-    right: tovw(260);
+    right: tovw(253);
+  }
+
+  @include tablet(landscape) {
+    bottom: tovw(191);
+    right: tovw(256);
   }
 
   @include mobile {
     bottom: tovw(127);
-    right: tovw(160);
+    right: tovw(146);
   }
 
   @include mobile(landscape) {
-    bottom: tovw(158);
-    right: tovw(142);
+    bottom: tovw(150);
+    right: tovw(132);
   }
 }
 
@@ -840,8 +866,8 @@
 
 .shadow {
   z-index: 5;
-  bottom: tovw(104);
-  left: tovw(44);
+  bottom: tovw(102);
+  left: tovw(54);
   width: tovw(638);
   height: tovw(501);
 
@@ -853,25 +879,25 @@
   }
 
   @include tablet {
-    top: tovw(52);
-    left: tovw(20);
+    top: tovw(-78);
+    left: tovw(34);
   }
 
   @include tablet(landscape) {
-    top: tovw(50);
-    left: tovw(20);
+    top: tovw(-82);
+    left: tovw(30);
   }
 
   @include mobile {
-    top: tovw(-66);
+    top: tovw(-50);
     left: tovw(38);
     width: tovw(328);
     height: tovw(258);
   }
 
   @include mobile(landscape) {
-    top: tovw(-96);
-    left: tovw(18);
+    top: tovw(-90);
+    left: tovw(25);
     width: tovw(291);
     height: tovw(228);
   }

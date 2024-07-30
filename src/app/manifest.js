@@ -11,17 +11,17 @@ export default function manifest() {
     theme_color: '#fff',
     icons: [
       {
-        src: '/icon',
+        url: '/favicon/apple-touch-icon.png',
         sizes: 'any',
         type: 'image/png',
       },
       {
-        src: '/icon',
+        url: '/favicon/android-chrome-512x512.png',
         sizes: '512x512',
         type: 'image/png',
       },
       {
-        src: '/apple-icon',
+        url: '/favicon/android-chrome-192x192.png',
         sizes: '192x192',
         type: 'image/png',
         purpose: 'any',
