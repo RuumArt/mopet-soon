@@ -42,7 +42,6 @@ export const metadata = {
     },
     description: APP_INFO.APP_DESCRIPTION,
     url: APP_INFO.APP_BASE_URL,
-    image: APP_INFO.APP_DEFAULT_OG,
   },
   twitter: {
     card: 'summary_large_image',
@@ -73,7 +72,7 @@ export const metadata = {
       url: '/favicon/android-chrome-512x512.png',
     },
   ],
-  manifest: '/favicon/manifest.webmanifest',
+  manifest: '/manifest.webmanifest',
   verification: {
     // google: 'google',
     // yandex: 'yandex',

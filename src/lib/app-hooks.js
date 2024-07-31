@@ -4,11 +4,17 @@ import React, { useEffect } from 'react';
 
 import { useAppStore } from 'context/use-app-store';
 import { useFoucFix } from 'hooks/use-fouc-fix';
-import { gaTrackingId } from 'constants/vars';
+import {gaTrackingId, isClient, roomLog} from 'constants/vars';
 import { GAScripts, useAppGA } from 'hooks/use-app-ga';
 
 export const AppHooks = () => {
   if (gaTrackingId) useAppGA();
+
+  if(isClient) {
+    useEffect(() => {
+      console.log(roomLog);
+    }, []);
+  }
 
   useFontsLoaded();
   useFoucFix();
