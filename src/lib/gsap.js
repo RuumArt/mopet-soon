@@ -1,13 +1,13 @@
 import { gsap } from 'gsap';
 
-import { CustomEase } from 'gsap/dist/CustomEase';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-import { Observer } from 'gsap/dist/Observer';
+// import { Observer } from 'gsap/dist/Observer';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 import { isElement } from 'utils/isElement';
+import { MorphSVGPlugin } from 'gsap/dist/MorphSVGPlugin';
 
-gsap.registerPlugin(CustomEase, ScrollToPlugin, ScrollTrigger, Observer);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, MorphSVGPlugin);
 
 gsap.ticker.fps(60);
 gsap.ticker.lagSmoothing(0);
@@ -16,25 +16,12 @@ const GOLDEN_RATIO = (1 + Math.sqrt(5)) / 2;
 const RECIPROCAL_GR = 1 / GOLDEN_RATIO;
 const DURATION = RECIPROCAL_GR * 0.8;
 
-const ease = CustomEase.create('custom', 'M0,0 C0.30,0.35 0.40,1 1,1');
-
-CustomEase.create('quartIn', '0.5, 0, 0.75, 0');
-CustomEase.create('quartOut', '0.25, 1, 0.5, 1');
-CustomEase.create('quartInOut', '0.75, 0, 0.25, 1');
-CustomEase.create('in1', '0.33, 0, 0.68, 0');
-CustomEase.create('out1', '0.33, 1, 0.68, 1');
-CustomEase.create('inOut1', '0.65, 0, 0.35, 1');
-CustomEase.create('in2', '0.8, 0, 0.6, 0.6');
-CustomEase.create('out2', '0.4, 0.4, 0.1, 1');
-CustomEase.create('inOut2', '0.8, 0, 0.2, 1');
-
 gsap.config({
   autoSleep: 60,
   nullTargetWarn: false,
 });
 
 gsap.defaults({
-  ease,
   duration: DURATION,
 });
 
@@ -83,12 +70,4 @@ const clearProps = (target, props = 'all') => {
   });
 };
 
-export {
-  clearProps,
-  DURATION,
-  GOLDEN_RATIO,
-  gsap,
-  ScrollTrigger,
-  Observer,
-  CustomEase,
-};
+export { clearProps, DURATION, GOLDEN_RATIO, gsap, ScrollTrigger };

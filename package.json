@@ -1,5 +1,5 @@
 {
-  "name": "SNP-BOILER",
+  "name": "Monpet",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,7 +18,7 @@
     "@theatre/studio": "^0.7.2",
     "classnames": "^2.3.2",
     "clsx": "^2.1.0",
-    "gsap": "^3.12.5",
+    "gsap": "./src/lib/gsap-bonus.tgz",
     "negotiator": "^0.6.3",
     "next": "^14.2.3",
     "normalize-wheel": "^1.0.1",

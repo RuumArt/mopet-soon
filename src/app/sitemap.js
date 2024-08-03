@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { siteUrlEnv } from "constants/vars";
 
 export default function sitemap() {
 	const appDirectory = path.join(process.cwd(), 'src/app');
@@ -11,7 +12,7 @@ export default function sitemap() {
 
 	const sitemapArray = [
 		{
-			url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+			url: `${siteUrlEnv}`,
 			lastModified: new Date(),
 			changeFrequency: 'yearly',
 			priority: 1,
@@ -22,7 +23,7 @@ export default function sitemap() {
 			})
 			.map(folder => {
 				return {
-					url: `${process.env.NEXT_PUBLIC_SITE_URL}/${folder}`,
+					url: `${siteUrlEnv}/${folder}`,
 					lastModified: new Date(),
 					changeFrequency: 'weekly',
 					priority: 0.8,

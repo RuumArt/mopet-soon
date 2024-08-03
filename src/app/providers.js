@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Scroll } from 'components/Scroll';
 import { Cursor } from 'components/Cursor';
 import { RealViewportProvider } from 'components/RealViewport';
 import { ViewportProvider } from 'components/Viewport';

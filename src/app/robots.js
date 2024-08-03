@@ -1,3 +1,5 @@
+import { siteUrlEnv } from "constants/vars";
+
 export default function robots() {
 	return {
 		rules: {
@@ -5,6 +7,6 @@ export default function robots() {
 			allow: '/',
 			disallow: '/private/',
 		},
-		sitemap: `${process.env.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
+		sitemap: `${siteUrlEnv}/sitemap.xml`,
 	};
 }
