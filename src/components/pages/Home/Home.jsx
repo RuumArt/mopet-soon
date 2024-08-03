@@ -20,6 +20,8 @@ import s from './Home.module.scss';
 export const Home = ({ className, data }) => {
   const sceneRef = useRef(null);
 
+  const [maskStart, setMaskStart] = useState(false);
+
   const { setSiteLoad } = useAppStore();
 
   useLayoutEffect(() => {
@@ -257,21 +259,21 @@ export const Home = ({ className, data }) => {
           '--mask-size': '100%',
           duration: 1,
           ease: 'power4.inOut',
+          onComplete: () => {
+            setMaskStart(true);
+          },
         },
         '<+=2'
       );
     }
 
-    tl.from(
-      boom,
-      {
-        xPercent: -100,
-        yPercent: 10,
-        rotation: -10,
-        duration: 2,
-        ease: 'circ.out',
-      }
-    );
+    tl.from(boom, {
+      xPercent: -100,
+      yPercent: 10,
+      rotation: -10,
+      duration: 2,
+      ease: 'circ.out',
+    });
 
     // tl.from(
     //   boomShadow,
@@ -295,6 +297,7 @@ export const Home = ({ className, data }) => {
         data={data}
         isActive
         ref={sceneRef}
+        isStartMobileAnimation={maskStart}
       />
       <div className={s.copy}>© 2024 Monpet</div>
     </PageLayout>

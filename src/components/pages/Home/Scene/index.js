@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import { Image } from 'components/Image';
 import { useCursor } from 'components/Cursor';
-import { forwardRef, useCallback, useEffect, useRef } from 'react';
+import { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import useVariables from 'hooks/use-variables';
 
 import { gsap } from 'lib/gsap';
@@ -15,11 +15,14 @@ import { clamp } from 'utils/math';
 import { getDD, useDeviceDetect } from 'hooks/use-device-detect';
 import { composeRefs } from 'utils/composeRefs';
 import { useAppStore } from 'context/use-app-store';
-import { useViewport } from 'components/Viewport';
+
 import s from './Scene.module.scss';
 
 export const Scene = forwardRef(
-  ({ className, data, isActive = false }, ref) => {
+  (
+    { className, data, isActive = false, isStartMobileAnimation = false },
+    ref
+  ) => {
     const dd = useDeviceDetect();
 
     const rootRef = useRef(null);
@@ -84,7 +87,7 @@ export const Scene = forwardRef(
     }, [isActive]);
 
     useEffect(() => {
-      if (!siteLoad) return;
+      if (!isStartMobileAnimation) return;
       const dd = getDD();
 
       if (dd.isTouch) {
@@ -95,14 +98,15 @@ export const Scene = forwardRef(
           },
           {
             '--mask-size': '94%',
-            duration: 1,
+            duration: 2,
             ease: 'sine.inOut',
             repeat: -1,
             yoyo: true,
+            overwrite: 'auto',
           }
         );
       }
-    }, [siteLoad, dd]);
+    }, [isStartMobileAnimation]);
 
     return (
       <div
@@ -200,4 +204,5 @@ export const Scene = forwardRef(
 Scene.propTypes = {
   className: PropTypes.string,
   data: PropTypes.object,
+  isStartMobileAnimation: PropTypes.bool,
 };
