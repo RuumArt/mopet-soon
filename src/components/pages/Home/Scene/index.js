@@ -60,8 +60,8 @@ export const Scene = forwardRef(
 
       gsap.to(sceneAltRef.current, {
         opacity: 1,
-        ease: 'sine.inOut',
-        duration: 0.5,
+        duration: 1,
+        ease: 'power4.inOut',
       });
     }, [isActive, dd]);
 
@@ -150,7 +150,7 @@ export const Scene = forwardRef(
             </div>
 
             <div
-              className={s.sceneAlt}
+              className={clsx(s.sceneAlt, 'scene-alt')}
               ref={sceneAltRef}
             >
               <div className={s.sceneAltInner}>
@@ -195,11 +195,7 @@ export const Scene = forwardRef(
 
         <div className={clsx(s.bottomBg, s.el, 'bottom-bg')} />
 
-        <svg
-          viewBox="0 0 839 541"
-          xmlns="http://www.w3.org/2000/svg"
-          className={s.mask}
-        >
+        <svg className={s.mask}>
           <clipPath
             id="mask"
             clipPathUnits="objectBoundingBox"

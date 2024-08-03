@@ -734,6 +734,8 @@
   width: tovw(793);
   height: tovw(620);
   opacity: 0;
+  //overflow: hidden;
+  //clip-path: circle(0 at 50% 50%);
   //mask-image: url("/images/scene/mask-new.svg");
   //mask-size: var(--mask-size);
   //mask-position: center center;

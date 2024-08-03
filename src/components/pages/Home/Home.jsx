@@ -36,6 +36,8 @@ export const Home = ({ className, data }) => {
     const pluses = document.querySelector('.pluses');
     const bg = pluses.parentNode;
 
+    const sceneAlt = document.querySelector('.scene-alt');
+
     const bottomBg = document.querySelector('.bottom-bg');
     const cat = document.querySelector('.cat');
     const camera = document.querySelector('.camera');
@@ -263,10 +265,19 @@ export const Home = ({ className, data }) => {
     );
 
     if (dd.isTouch) {
+      // tl.to(
+      //   sceneRef.current,
+      //   {
+      //     '--mask-size': '100%',
+      //     duration: 1,
+      //     ease: 'power4.inOut',
+      //   },
+      //   '<+=1.5'
+      // );
       tl.to(
-        sceneRef.current,
+        sceneAlt,
         {
-          '--mask-size': '100%',
+          opacity: 1,
           duration: 1,
           ease: 'power4.inOut',
         },
