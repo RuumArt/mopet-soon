@@ -25,7 +25,7 @@ export const Header = ({ className, lang }) => {
   return (
     <div
       className={clsx(s.root, className, {
-        [s.isOtherPage]: pathName.includes('test'),
+        [s.isOtherPage]: pathName.includes('morph'),
         [s.isLoad]: siteLoad,
       })}
     >

@@ -36,8 +36,6 @@ export const Home = ({ className, data }) => {
     const pluses = document.querySelector('.pluses');
     const bg = pluses.parentNode;
 
-    const sceneAlt = document.querySelector('.scene-alt');
-
     const bottomBg = document.querySelector('.bottom-bg');
     const cat = document.querySelector('.cat');
     const camera = document.querySelector('.camera');
@@ -252,6 +250,18 @@ export const Home = ({ className, data }) => {
       '<'
     );
 
+    if (dd.isTouch) {
+      tl.to(
+        sceneRef.current,
+        {
+          '--mask-size': '100%',
+          duration: 1,
+          ease: 'power4.inOut',
+        },
+        '<+=2'
+      );
+    }
+
     tl.from(
       boom,
       {
@@ -260,30 +270,8 @@ export const Home = ({ className, data }) => {
         rotation: -10,
         duration: 2,
         ease: 'circ.out',
-      },
-      '-=0.5'
+      }
     );
-
-    if (dd.isTouch) {
-      // tl.to(
-      //   sceneRef.current,
-      //   {
-      //     '--mask-size': '100%',
-      //     duration: 1,
-      //     ease: 'power4.inOut',
-      //   },
-      //   '<+=1.5'
-      // );
-      tl.to(
-        sceneAlt,
-        {
-          opacity: 1,
-          duration: 1,
-          ease: 'power4.inOut',
-        },
-        '<+=1.5'
-      );
-    }
 
     // tl.from(
     //   boomShadow,

@@ -38,11 +38,9 @@ export const gaTrackingId = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
 
 export const APP_INFO = {
   APP_NAME: AppData.name,
-  APP_DEFAULT_TITLE:
-    'Инновационная платформа 8в1 для содержания и помощи животным | Monpet',
+  APP_DEFAULT_TITLE: 'Инновационная платформа 8в1 для содержания и помощи животным | Monpet',
   APP_TITLE_TEMPLATE: '%s | Monpet',
-  APP_DESCRIPTION:
-    'Поддержите разработку первого в мире приложения, которое с помощью технологии MonAI персонализирует 8 ключевых сервисов для правильного и безопасного ухода за питомцами и включает в себя крупнейшую платформу Monifico для спасения животных.',
+  APP_DESCRIPTION: 'Поддержите разработку первого в мире приложения, которое с помощью технологии MonAI персонализирует 8 ключевых сервисов для правильного и безопасного ухода за питомцами и включает в себя крупнейшую платформу Monifico для спасения животных.',
   APP_KEYWORDS: [],
   APP_AUTHORS: [{ name: 'Room', url: 'https://t.me/room_dev' }],
   APP_DEFAULT_OG: '/og-image.png',

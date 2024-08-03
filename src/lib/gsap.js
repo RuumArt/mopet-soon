@@ -2,12 +2,11 @@ import { gsap } from 'gsap';
 
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-// import { Observer } from 'gsap/dist/Observer';
+import { Observer } from 'gsap/dist/Observer';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 import { isElement } from 'utils/isElement';
-import { MorphSVGPlugin } from 'gsap/dist/MorphSVGPlugin';
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, MorphSVGPlugin);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, Observer);
 
 gsap.ticker.fps(60);
 gsap.ticker.lagSmoothing(0);
@@ -70,4 +69,11 @@ const clearProps = (target, props = 'all') => {
   });
 };
 
-export { clearProps, DURATION, GOLDEN_RATIO, gsap, ScrollTrigger };
+export {
+  clearProps,
+  DURATION,
+  GOLDEN_RATIO,
+  gsap,
+  ScrollTrigger,
+  Observer,
+};

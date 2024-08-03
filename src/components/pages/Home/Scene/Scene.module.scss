@@ -247,7 +247,7 @@
 }
 
 .cat {
-  z-index: 5;
+  z-index: 6;
   bottom: tovw(17);
   left: tovw(58);
   width: tovw(308);
@@ -309,7 +309,7 @@
 }
 
 .camera {
-  z-index: 4;
+  z-index: 5;
   bottom: tovw(4);
   left: tovw(140);
   width: tovw(523);
@@ -466,9 +466,16 @@
   }
 }
 
+//.dog4 {
+//  z-index: 99;
+//  border: 1px solid red;
+//  bottom: tovw(200);
+//  right: tovw(242);
+//}
+
 .dogAlt {
   bottom: tovw(192);
-  right: tovw(287);
+  right: tovw(277);
 
   @include tablet {
     bottom: tovw(188);
@@ -695,37 +702,6 @@
   }
 }
 
-
-.mask {
-  width: 0;
-  height: 0;
-  overflow: unset;
-  //transform: rotate(-45deg);
-
-  //@include hover {
-  //  path {
-  //    transform: scale(0, 0);
-  //  }
-  //}
-
-  path {
-    //transform-origin: left left;
-    transform: scale(0.001191895113, 0.001648428835);
-    //transform: scale(0.001261034048, 0.001612903226);
-    //transform-box: fill-box;
-    //transform-origin: center;
-  }
-}
-
-.sceneAltInner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  clip-path: url(#mask);
-}
-
 .sceneAlt {
   position: absolute;
   z-index: 7;
@@ -733,21 +709,12 @@
   right: tovw(20);
   width: tovw(793);
   height: tovw(620);
-  opacity: 0;
-  //overflow: hidden;
-  //clip-path: circle(0 at 50% 50%);
-  //mask-image: url("/images/scene/mask-new.svg");
-  //mask-size: var(--mask-size);
-  //mask-position: center center;
-  //mask-repeat: no-repeat;
-  //clip-path: url(#mask);
-  //pointer-events: none;
-  //user-select: none;
-  //transition: opacity 0.3s var(--ease-in-out-quad);
-  //
-  //@include hover {
-  //  opacity: 1;
-  //}
+  mask-image: url("/images/scene/mask-new.svg");
+  mask-size: var(--mask-size);
+  mask-position: center center;
+  mask-repeat: no-repeat;
+  pointer-events: none;
+  user-select: none;
 
   @include tabletAll {
     width: tovw(620);
@@ -906,9 +873,9 @@
 
 .shadow {
   z-index: 5;
-  bottom: tovw(102);
-  left: tovw(54);
-  width: tovw(638);
+  bottom: tovw(98);
+  left: tovw(58);
+  width: tovw(636);
   height: tovw(501);
 
   //transform: translate3d(calc(var(--parallax-x) * 1%), calc(var(--parallax-y) * 1%), 0);

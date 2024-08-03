@@ -30,27 +30,41 @@ export const metadata = {
     //   'de-DE': '/de-DE',
     // },
   },
-  applicationName: APP_INFO.APP_NAME,
+  // applicationName: APP_INFO.APP_NAME,
   keywords: APP_INFO.APP_KEYWORDS,
   authors: APP_INFO.APP_AUTHORS,
   openGraph: {
-    type: 'website',
-    siteName: APP_INFO.APP_NAME,
-    title: {
-      default: APP_INFO.APP_DEFAULT_TITLE,
-      template: APP_INFO.APP_TITLE_TEMPLATE,
-    },
-    description: APP_INFO.APP_DESCRIPTION,
-    url: APP_INFO.APP_BASE_URL,
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+      },
+      {
+        url: '/og-image-200.jpg',
+        width: 200,
+        height: 200,
+      },
+    ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: {
-      default: APP_INFO.APP_DEFAULT_TITLE,
-      template: APP_INFO.APP_DEFAULT_TITLE,
-    },
-    description: APP_INFO.APP_DESCRIPTION,
-  },
+  // openGraph: {
+  //   type: 'website',
+  //   siteName: APP_INFO.APP_NAME,
+  //   title: {
+  //     default: APP_INFO.APP_DEFAULT_TITLE,
+  //     template: APP_INFO.APP_TITLE_TEMPLATE,
+  //   },
+  //   description: APP_INFO.APP_DESCRIPTION,
+  //   url: APP_INFO.APP_BASE_URL,
+  // },
+  // twitter: {
+  //   card: 'summary_large_image',
+  //   title: {
+  //     default: APP_INFO.APP_DEFAULT_TITLE,
+  //     template: APP_INFO.APP_DEFAULT_TITLE,
+  //   },
+  //   description: APP_INFO.APP_DESCRIPTION,
+  // },
   icons: [
     {
       rel: 'apple-touch-icon',
