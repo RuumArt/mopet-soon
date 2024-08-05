@@ -1,18 +1,16 @@
 'use client';
 
-import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
+import { useRef, useState, useLayoutEffect } from 'react';
 import { object, string } from 'prop-types';
 import clsx from 'clsx';
 
 import gsap from 'gsap';
 
 import { PageLayout } from 'components/PageLayout';
-
 import { Scene } from 'pages/Home/Scene';
-
 import { getDD } from 'hooks/use-device-detect';
-
 import { useAppStore } from 'context/use-app-store';
+
 import s from './Home.module.scss';
 
 /* TODO: Clear animations */
