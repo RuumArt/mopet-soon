@@ -5,16 +5,15 @@ import clsx from 'clsx';
 
 import { Image } from 'components/Image';
 import { useCursor } from 'components/Cursor';
-import { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import { forwardRef, useCallback, useEffect, useRef } from 'react';
 import useVariables from 'hooks/use-variables';
 
 import { gsap } from 'lib/gsap';
 
 import { clamp } from 'utils/math';
 
-import { getDD, useDeviceDetect } from 'hooks/use-device-detect';
+import { useDeviceDetect } from 'hooks/use-device-detect';
 import { composeRefs } from 'utils/composeRefs';
-import { useAppStore } from 'context/use-app-store';
 
 import s from './Scene.module.scss';
 
@@ -28,7 +27,6 @@ export const Scene = forwardRef(
     const rootRef = useRef(null);
     const [catRef] = [useRef(null)];
     const { addCallback, removeCallback } = useCursor();
-    const { siteLoad } = useAppStore();
 
     const handleCursorUpdate = e => {
       const { x, y } = e;

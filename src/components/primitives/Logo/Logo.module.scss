@@ -9,6 +9,7 @@
 
 .letter {
   display: block;
+  flex: 0 0 auto;
   opacity: 0;
 
   svg {
@@ -19,7 +20,7 @@
     position: relative;
     width: getScaledValue(37);
     height: getScaledValue(31.8);
-    margin-bottom: tovw(1);
+    margin-bottom: getScaledValue(1);
     margin-right: 1px;
     opacity: 1;
 
@@ -51,7 +52,7 @@
   &:nth-child(3) {
     width: getScaledValue(23);
     height: getScaledValue(22);
-    margin-right: getScaledValue(3);
+    margin-right: 3px;
 
     @include mobileAll {
       width: getScaledValue(19);
@@ -63,7 +64,7 @@
   &:nth-child(4) {
     width: getScaledValue(22);
     height: getScaledValue(22);
-    margin-right: tovw(2);
+    margin-right: 2px;
 
     @include mobileAll {
       width: getScaledValue(18);
@@ -75,7 +76,7 @@
   &:nth-child(5) {
     width: getScaledValue(22);
     height: getScaledValue(22);
-    margin-right: tovw(1);
+    margin-right: 1px;
 
     @include mobileAll {
       width: getScaledValue(18);

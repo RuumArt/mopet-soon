@@ -89,22 +89,18 @@ export const Home = ({ className, data }) => {
       '<'
     );
 
-    const snapVal = gsap.utils.snap(1);
-
     tl.to(
       logo,
       {
-        top: logoWrap.offsetTop,
-        yPercent: 0,
+        top: () => {
+          const { y, height } = logoWrap.getBoundingClientRect();
+          return y + height / 2;
+        },
         scale: () => {
-          return 1 / gsap.getProperty(logo, '--scale');
+          const currentScale = gsap.getProperty(logo, '--scale');
+          return 1 / currentScale;
         },
         ease: 'circ.inOut',
-        onUpdate() {
-          gsap.set(logo, {
-            transformOrigin: `50% ${snapVal(50 * (1 - this.progress()))}%`,
-          });
-        },
       },
       '+=0.2'
     );
@@ -125,15 +121,11 @@ export const Home = ({ className, data }) => {
     tl.to(
       logo,
       {
-        transformOrigin: '0% 0%',
-        left: logoWrap.offsetLeft,
-        xPercent: 0,
-        ease: 'circ.inOut',
-        onUpdate() {
-          gsap.set(logo, {
-            transformOrigin: `${50 * (1 - this.progress())}% 0%`,
-          });
+        left: () => {
+          const { x, width } = logoWrap.getBoundingClientRect();
+          return x + width / 2;
         },
+        ease: 'circ.inOut',
       },
       '+=0.2'
     );

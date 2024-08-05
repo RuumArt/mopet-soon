@@ -57,19 +57,6 @@
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
 
-  //margin-left: getScaledValue(-78);
-  //margin-top: getScaledValue(-16);
-  //
-  //@include mobile {
-  //  margin-left: getScaledValue(-63);
-  //  margin-top: getScaledValue(-12);
-  //}
-  //
-  //@include mobile(landscape) {
-  //  margin-left: getScaledValue(-63);
-  //  margin-top: getScaledValue(-12);
-  //}
-
   @include tablet {
     --scale: 3.5;
   }
@@ -93,12 +80,15 @@
 }
 
 .isLoad {
-  .logo {
-    --scale: 1;
+  .logoWrap {
     position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
+  }
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: scale(calc(1 / var(--scale))) translateX(-50%) translateY(-50%);
     transform-origin: left top;
   }
 }
