@@ -86,31 +86,33 @@ export const Scene = forwardRef(
       }
     }, [isActive]);
 
-    useEffect(() => {
-      if (!isStartMobileAnimation) return;
-      const dd = getDD();
-
-      if (dd.isTouch) {
-        gsap.fromTo(
-          rootRef.current,
-          {
-            '--mask-size': '100%',
-          },
-          {
-            '--mask-size': '94%',
-            duration: 2,
-            ease: 'sine.inOut',
-            repeat: -1,
-            yoyo: true,
-            overwrite: 'auto',
-          }
-        );
-      }
-    }, [isStartMobileAnimation]);
+    // useEffect(() => {
+    //   if (!isStartMobileAnimation) return;
+    //   const dd = getDD();
+    //
+    //   if (dd.isTouch) {
+    //     gsap.fromTo(
+    //       rootRef.current,
+    //       {
+    //         '--mask-size': '100%',
+    //       },
+    //       {
+    //         '--mask-size': '94%',
+    //         duration: 2,
+    //         ease: 'sine.inOut',
+    //         repeat: -1,
+    //         yoyo: true,
+    //         overwrite: 'auto',
+    //       }
+    //     );
+    //   }
+    // }, [isStartMobileAnimation]);
 
     return (
       <div
-        className={clsx(s.root, className)}
+        className={clsx(s.root, className, {
+          [s.isTouchAnimationStart]: dd.isTouch && isStartMobileAnimation,
+        })}
         ref={composeRefs(rootRef, ref)}
       >
         <div className={s.bg}>
@@ -157,30 +159,32 @@ export const Scene = forwardRef(
             </div>
 
             <div className={s.sceneAlt}>
-              <div className={s.space}>
-                <Image src="/images/scene/x4/space.webp" />
-              </div>
+              <div className={s.sceneAltInner}>
+                <div className={s.space}>
+                  <Image src="/images/scene/x4/space.webp" />
+                </div>
 
-              <div className={clsx(s.earth, s.el)}>
-                <Image src="/images/scene/x4/earth.webp" />
-              </div>
+                <div className={clsx(s.earth, s.el)}>
+                  <Image src="/images/scene/x4/earth.webp" />
+                </div>
 
-              <div className={s.moonGroup}>
-                <div className={clsx(s.moon, s.el)}>
-                  <Image src="/images/scene/x4/moon.webp" />
+                <div className={s.moonGroup}>
+                  <div className={clsx(s.moon, s.el)}>
+                    <Image src="/images/scene/x4/moon.webp" />
+                  </div>
+                  <div className={clsx(s.dog, s.dogAlt, s.el)}>
+                    <Image src="/images/scene/x4/dog.webp" />
+                  </div>
+                  <div className={clsx(s.shadow, s.el)}>
+                    <Image src="/images/scene/x4/shadow.webp" />
+                  </div>
+                  <div className={clsx(s.flag, s.flagAlt, s.el, 'flag')}>
+                    <Image src="/images/scene/x4/flag.webp" />
+                  </div>
                 </div>
-                <div className={clsx(s.dog, s.dogAlt, s.el)}>
-                  <Image src="/images/scene/x4/dog.webp" />
+                <div className={clsx(s.stars, s.el)}>
+                  <Image src="/images/scene/x4/stars.webp" />
                 </div>
-                <div className={clsx(s.shadow, s.el)}>
-                  <Image src="/images/scene/x4/shadow.webp" />
-                </div>
-                <div className={clsx(s.flag, s.flagAlt, s.el, 'flag')}>
-                  <Image src="/images/scene/x4/flag.webp" />
-                </div>
-              </div>
-              <div className={clsx(s.stars, s.el)}>
-                <Image src="/images/scene/x4/stars.webp" />
               </div>
             </div>
           </div>

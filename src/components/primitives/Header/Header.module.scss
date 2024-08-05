@@ -1,3 +1,7 @@
+@function getScaledValue($num) {
+  @return calc(#{tovw($num)} * var(--scale));
+}
+
 .root {
   position: fixed;
   z-index: var(--z-header);
@@ -26,6 +30,10 @@
   }
 }
 
+.logoScale {
+  //position: absolute;
+}
+
 .logoWrap {
   width: tovw(156);
   height: tovw(32);
@@ -47,19 +55,20 @@
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: scale(var(--scale));
-  margin-left: tovw(-78);
-  margin-top: tovw(-16);
+  transform: translateY(-50%) translateX(-50%);
 
-  @include mobile {
-    margin-left: tovw(-63);
-    margin-top: tovw(-12);
-  }
-
-  @include mobile(landscape) {
-    margin-left: tovw(-63);
-    margin-top: tovw(-12);
-  }
+  //margin-left: getScaledValue(-78);
+  //margin-top: getScaledValue(-16);
+  //
+  //@include mobile {
+  //  margin-left: getScaledValue(-63);
+  //  margin-top: getScaledValue(-12);
+  //}
+  //
+  //@include mobile(landscape) {
+  //  margin-left: getScaledValue(-63);
+  //  margin-top: getScaledValue(-12);
+  //}
 
   @include tablet {
     --scale: 3.5;
@@ -85,7 +94,11 @@
 
 .isLoad {
   .logo {
+    --scale: 1;
     position: relative;
-    transform: scale(1);
+    top: 0;
+    left: 0;
+    transform: none;
+    transform-origin: left top;
   }
 }

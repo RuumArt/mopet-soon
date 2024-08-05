@@ -58,6 +58,7 @@ export const Home = ({ className, data }) => {
         gsap.set(logo, {
           clearProps: 'all',
         });
+
         gsap.set(bottomBg, {
           clearProps: 'all',
         });
@@ -88,13 +89,22 @@ export const Home = ({ className, data }) => {
       '<'
     );
 
+    const snapVal = gsap.utils.snap(1);
+
     tl.to(
       logo,
       {
         top: logoWrap.offsetTop,
-        scale: 1,
-        marginTop: 0,
+        yPercent: 0,
+        scale: () => {
+          return 1 / gsap.getProperty(logo, '--scale');
+        },
         ease: 'circ.inOut',
+        onUpdate() {
+          gsap.set(logo, {
+            transformOrigin: `50% ${snapVal(50 * (1 - this.progress()))}%`,
+          });
+        },
       },
       '+=0.2'
     );
@@ -115,9 +125,15 @@ export const Home = ({ className, data }) => {
     tl.to(
       logo,
       {
+        transformOrigin: '0% 0%',
         left: logoWrap.offsetLeft,
-        marginLeft: 0,
+        xPercent: 0,
         ease: 'circ.inOut',
+        onUpdate() {
+          gsap.set(logo, {
+            transformOrigin: `${50 * (1 - this.progress())}% 0%`,
+          });
+        },
       },
       '+=0.2'
     );
