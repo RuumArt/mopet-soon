@@ -10,6 +10,16 @@ import clsx from 'clsx';
 
 import s from './Image.module.scss';
 
+const imageLoader = ({ src, width }) => {
+  switch (width) {
+    case 1920:
+      return src;
+    default:
+      const newSrc = src.replace('x4', 'x2');
+      return newSrc;
+  }
+};
+
 export const Image = ({
   className,
   src,
@@ -43,10 +53,8 @@ export const Image = ({
       priority={priority}
       quality={quality}
       onLoad={onLoad}
-      loader={({ src }) => {
-        return src;
-      }}
-      unoptimized
+      loader={imageLoader}
+      // unoptimized
       {...widthProps}
     />
   );

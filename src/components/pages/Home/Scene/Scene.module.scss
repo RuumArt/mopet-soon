@@ -671,27 +671,27 @@
   }
 
   @include tablet {
-    bottom: tovw(280);
-    right: tovw(-10);
+    bottom: tovw(291);
+    right: tovw(-11);
   }
 
   @include tablet(landscape) {
-    bottom: tovw(280);
-    right: tovw(-10);
+    bottom: tovw(283);
+    right: tovw(-13);
   }
 
   @include mobile {
     width: tovw(203);
     height: tovw(204);
-    top: tovw(-92);
-    right: tovw(-3);
+    top: tovw(-95);
+    right: tovw(-8);
   }
 
   @include mobile(landscape) {
     width: tovw(180);
     height: tovw(181);
     bottom: tovw(164);
-    right: 0;
+    right: tovw(2);
   }
 
   @include lang(ru) {
@@ -817,10 +817,10 @@
   }
 
   @include mobile {
-    left: tovw(18);
+    left: tovw(14);
     bottom: tovw(26);
-    width: tovw(384);
-    height: tovw(177);
+    width: tovw(390);
+    height: tovw(179);
   }
 
   @include mobile(landscape) {
