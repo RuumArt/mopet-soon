@@ -57,14 +57,14 @@ export const metadata = {
   //   description: APP_INFO.APP_DESCRIPTION,
   //   url: APP_INFO.APP_BASE_URL,
   // },
-  // twitter: {
-  //   card: 'summary_large_image',
-  //   title: {
-  //     default: APP_INFO.APP_DEFAULT_TITLE,
-  //     template: APP_INFO.APP_DEFAULT_TITLE,
-  //   },
-  //   description: APP_INFO.APP_DESCRIPTION,
-  // },
+  twitter: {
+    // card: 'summary_large_image',
+    title: {
+      default: APP_INFO.APP_DEFAULT_TITLE,
+      template: APP_INFO.APP_DEFAULT_TITLE,
+    },
+    description: APP_INFO.APP_DESCRIPTION,
+  },
   icons: [
     {
       rel: 'apple-touch-icon',
