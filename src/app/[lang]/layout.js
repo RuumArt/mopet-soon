@@ -36,14 +36,14 @@ export const metadata = {
   openGraph: {
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-      },
-      {
         url: '/og-image-200.jpg',
         width: 200,
         height: 200,
+      },
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
       },
     ],
   },
